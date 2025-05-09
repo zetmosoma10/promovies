@@ -1,14 +1,17 @@
+import MovieCard from "../components/MovieCard";
 import useMovies from "../hooks/useMovies";
 
 const MoviesPage = () => {
-  const { data } = useMovies();
+  const { data, isError, error } = useMovies();
+
+  if (isError) throw error;
 
   return (
-    <ul>
+    <section>
       {data?.results.map((movie) => (
-        <li key={movie.id}>{movie.title}</li>
+        <MovieCard key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </section>
   );
 };
 
