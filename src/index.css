@@ -41,3 +41,19 @@ h3,
 h4 {
   font-family: "Montserrat", sans-serif;
 }
+
+@layer components {
+  .max-container {
+    @apply max-w-[1444px] mx-auto w-[95%];
+  }
+}
+
+@layer utilities {
+  .montserrat {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .roboto {
+    font-family: "Roboto", sans-serif;
+  }
+}
