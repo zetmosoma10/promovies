@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -9,28 +9,43 @@ const NavBar = () => {
         </Link>
         <ul className="hidden text-gray-200 sm:flex sm:items-center sm:space-x-5 md:space-x-8">
           <li>
-            <Link
+            <NavLink
               to="trending"
-              className="hover:font-semibold hover:text-mintGreen"
+              // className="hover:font-semibold hover:text-mintGreen"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-mintGreen"
+                  : "text-lightGray hover:text-mintGreen hover:font-semibold"
+              }
             >
               Trending
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="movies"
-              className="hover:font-semibold hover:text-mintGreen"
+              // className="hover:font-semibold hover:text-mintGreen"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-mintGreen"
+                  : "text-lightGray hover:text-mintGreen hover:font-semibold"
+              }
             >
               Movies
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="tvshows"
-              className="hover:font-semibold hover:text-mintGreen"
+              // className="hover:font-semibold hover:text-mintGreen"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-mintGreen"
+                  : "text-lightGray hover:text-mintGreen hover:font-semibold"
+              }
             >
               TV Shows
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <input
