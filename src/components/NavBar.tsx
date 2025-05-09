@@ -11,7 +11,6 @@ const NavBar = () => {
           <li>
             <NavLink
               to="trending"
-              // className="hover:font-semibold hover:text-mintGreen"
               className={({ isActive }) =>
                 isActive
                   ? "font-semibold text-mintGreen"
@@ -24,7 +23,6 @@ const NavBar = () => {
           <li>
             <NavLink
               to="movies"
-              // className="hover:font-semibold hover:text-mintGreen"
               className={({ isActive }) =>
                 isActive
                   ? "font-semibold text-mintGreen"
@@ -37,7 +35,6 @@ const NavBar = () => {
           <li>
             <NavLink
               to="tvshows"
-              // className="hover:font-semibold hover:text-mintGreen"
               className={({ isActive }) =>
                 isActive
                   ? "font-semibold text-mintGreen"

@@ -8,9 +8,9 @@ const MoviesPage = () => {
 
   return (
     <section>
-      <h1 className="figtree text-gray-50 font-medium text-3xl  mt-6">
+      <h2 className="figtree text-gray-50 font-medium text-3xl  mt-6">
         Movies
-      </h1>
+      </h2>
       <div className="grid-container mt-5">
         {data?.results.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
