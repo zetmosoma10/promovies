@@ -4,11 +4,13 @@ import MoviesPage from "./pages/MoviesPage";
 import TrendingPage from "./pages/TrendingPage";
 import TVShowsPage from "./pages/TVShowsPage";
 import Layout from "./pages/Layout";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

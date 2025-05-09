@@ -4,7 +4,7 @@ import api from "../services/apiClient";
 
 const useMovies = () => {
   return useQuery({
-    queryKey: ["movies"],
+    queryKey: ["movies", "poplular"],
     queryFn: () =>
       api.get<FetchResponse>("/movie/popular").then((res) => res.data),
   });
