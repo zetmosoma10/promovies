@@ -1,15 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import api from "../services/apiClient";
-import type { FetchResponse } from "../types/FetchResponse";
+import useMovies from "../hooks/useMovies";
 
 const MoviesPage = () => {
-  const { data } = useQuery({
-    queryKey: ["movies"],
-    queryFn: () =>
-      api.get<FetchResponse>("/movie/popular").then((res) => res.data),
-  });
+  const { data } = useMovies();
 
-  console.log(data);
   return (
     <ul>
       {data?.results.map((movie) => (
