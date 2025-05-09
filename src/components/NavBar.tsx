@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <header className="py-3 border">
       <nav className="flex items-center justify-between max-container ">
-        <Link to="/" className="text-2xl font-bold shadow-lg text-gray-50">
+        <Link to="/" className="text-2xl font-bold shadow-lg text-mintGreen">
           PROMOVIES
         </Link>
         <ul className="hidden text-gray-200 sm:flex sm:items-center sm:space-x-5 md:space-x-8">
