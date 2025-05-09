@@ -1,7 +1,7 @@
 function App() {
   return (
-    <section className="min-h-screen bg-gray-950">
-      <h1 className="text-5xl text-gray-100">Hello World</h1>
+    <section className="min-h-screen bg-bgColor">
+      <h1 className="text-5xl font-bold text-lightGray">Walking Dead</h1>
       <p className="text-gray-300">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae aliquam
         debitis cum beatae ipsum omnis rem veritatis perspiciatis, sunt
