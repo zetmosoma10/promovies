@@ -1,5 +1,6 @@
 import { POSTER_URL, IMG_SIZE } from "../constance";
 import type { Movie } from "../types/Movie";
+import { FaStar } from "react-icons/fa";
 import Ratings from "./Ratings";
 
 type Props = {
@@ -8,18 +9,25 @@ type Props = {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <div className="text-gray-50 ">
-      <div className="relative rounded-lg overflow-hidden ">
-        <span className="absolute top-2 left-2 rounded-md text-gray-200 text-xs bg-surfaceColor py-1 px-2">
-          {new Date(movie.release_date).getFullYear()}
-        </span>
+    <div className="relative h-[340px] rounded-lg overflow-hidden shadow-lg group transform transition-transform duration-300 hover:scale-105 will-change-transform">
+      <div className="z-10">
         <Ratings rating={movie.vote_average} />
-        <img
-          className="w-full"
-          src={`${POSTER_URL}${IMG_SIZE}${movie.poster_path}`}
-        />
       </div>
-      <p className="text-lg font-semibold mt-1">{movie.title || movie.name}</p>
+      <img
+        className="w-full h-full object-cover"
+        src={`${POSTER_URL}${IMG_SIZE}${movie.poster_path}`}
+      />
+
+      {/* Hover Overlay with Fade Top Shadow */}
+      <div className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Movie Info */}
+        <h3 className="text-lg font-semibold z-10 relative">
+          {movie.title || movie.name}
+        </h3>
+        <p className="text-sm z-10 relative">
+          Year: {movie.release_date || movie.first_air_date}
+        </p>
+      </div>
     </div>
   );
 };

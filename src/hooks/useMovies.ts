@@ -7,6 +7,7 @@ const useMovies = () => {
     queryKey: ["movies", "poplular"],
     queryFn: () =>
       api.get<FetchResponse>("/movie/popular").then((res) => res.data),
+    staleTime: 24 * 60 * 60 * 1000,
   });
 };
 

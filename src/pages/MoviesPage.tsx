@@ -11,7 +11,7 @@ const MoviesPage = () => {
       <h2 className="figtree text-gray-50 font-medium text-3xl  mt-6">
         Movies
       </h2>
-      <div className="grid-container mt-5">
+      <div className="relative grid-container mt-5">
         {data?.results.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

@@ -7,6 +7,7 @@ const useTrending = () => {
     queryKey: ["trending"],
     queryFn: () =>
       api.get<FetchResponse>("/trending/all/week").then((res) => res.data),
+    staleTime: 24 * 60 * 60 * 1000,
   });
 };
 

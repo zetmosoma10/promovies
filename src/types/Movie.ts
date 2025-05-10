@@ -1,9 +1,10 @@
 export type Movie = {
   id: number;
-  title: string;
+  name?: string;
+  title?: string;
   vote_average: number;
-  release_date: number;
+  release_date?: string;
   poster_path: string;
-  name: string;
-  media_type: string;
+  media_type?: string;
+  first_air_date?: string;
 };
