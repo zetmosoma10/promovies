@@ -9,11 +9,11 @@ const TrendingPage = () => {
   if (isError) throw error;
 
   return (
-    <section>
-      <h2 className="figtree text-gray-50 font-medium text-3xl  mt-6">
+    <section className="max-container">
+      <h2 className="mt-6 text-3xl font-medium figtree text-gray-50">
         Trending
       </h2>
-      <div className="grid-container mt-5">
+      <div className="mt-5 grid-container">
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
           : data?.results.map((movie) => (

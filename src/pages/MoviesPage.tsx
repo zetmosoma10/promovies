@@ -9,7 +9,7 @@ const MoviesPage = () => {
   if (isError) throw error;
 
   return (
-    <section>
+    <section className="max-container">
       <h2 className="figtree text-gray-50 font-medium text-3xl  mt-6">
         Movies
       </h2>

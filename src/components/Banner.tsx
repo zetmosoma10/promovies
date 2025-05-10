@@ -35,7 +35,7 @@ const Banner = () => {
             >
               <Link
                 to={`movies/${movie.id}`}
-                className="w-full p-4 border rounded-lg border-mintGreen text-gray-50 bg-surfaceColor/30 backdrop-blur-sm"
+                className="w-full p-4 border rounded-lg border-mintGreen text-gray-50 bg-surfaceColor/40 backdrop-blur-sm"
               >
                 {/* Rates & Year */}
                 <div className="flex items-center">
