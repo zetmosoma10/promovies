@@ -5,9 +5,7 @@ const Layout = () => {
   return (
     <section className="min-h-screen bg-bgColor">
       <NavBar />
-      <div className="max-container">
-        <Outlet />
-      </div>
+      <Outlet />
     </section>
   );
 };
