@@ -23,7 +23,7 @@ const MovieCard = ({ movie }: Props) => {
         <h3 className="text-lg font-semibold z-10 relative leading-5">
           {movie.title || movie.name}
         </h3>
-        <p className="text-sm z-10 relative mt-1">
+        <p className="text-sm z-10 relative">
           Year: {movie.release_date || movie.first_air_date}
         </p>
       </div>
