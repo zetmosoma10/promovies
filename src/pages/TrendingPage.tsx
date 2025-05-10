@@ -5,10 +5,11 @@ const TrendingPage = () => {
   const { data, isError, error } = useTrending();
 
   if (isError) throw error;
+
   return (
     <section>
       <h2 className="figtree text-gray-50 font-medium text-3xl  mt-6">
-        Trending Movies
+        Trending
       </h2>
       <div className="grid-container mt-5">
         {data?.results.map((movie) => (

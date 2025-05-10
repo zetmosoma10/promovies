@@ -6,7 +6,7 @@ const useTrending = () => {
   return useQuery({
     queryKey: ["trending"],
     queryFn: () =>
-      api.get<FetchResponse>("/trending/movie/week").then((res) => res.data),
+      api.get<FetchResponse>("/trending/all/week").then((res) => res.data),
   });
 };
 

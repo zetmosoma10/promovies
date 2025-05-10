@@ -6,7 +6,7 @@ const Ratings = ({ rating }: Props) => {
   let color = "";
   if (rating < 7) {
     color = "bg-red-700";
-  } else if (rating < 9) {
+  } else if (rating >= 7) {
     color = "bg-mintGreen";
   } else if (rating >= 9) {
     color = "bg-AzureBlue";

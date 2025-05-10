@@ -4,4 +4,6 @@ export type Movie = {
   vote_average: number;
   release_date: number;
   poster_path: string;
+  name: string;
+  media_type: string;
 };

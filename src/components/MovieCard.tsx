@@ -19,7 +19,7 @@ const MovieCard = ({ movie }: Props) => {
           src={`${POSTER_URL}${IMG_SIZE}${movie.poster_path}`}
         />
       </div>
-      <p className="text-lg font-semibold mt-1">{movie.title}</p>
+      <p className="text-lg font-semibold mt-1">{movie.title || movie.name}</p>
     </div>
   );
 };
