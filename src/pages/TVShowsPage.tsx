@@ -1,8 +1,9 @@
 import MovieCard from "../components/MovieCard";
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useTVShows from "../hooks/useTVShows";
 
 const TVShowsPage = () => {
-  const { data, isError, error } = useTVShows();
+  const { data, isLoading, isError, error } = useTVShows();
 
   if (isError) throw error;
 
@@ -12,9 +13,11 @@ const TVShowsPage = () => {
         TV Shows
       </h2>
       <div className="grid-container mt-5">
-        {data?.results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {isLoading
+          ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
+          : data?.results.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
       </div>
     </section>
   );

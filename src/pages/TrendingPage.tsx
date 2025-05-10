@@ -1,8 +1,9 @@
 import MovieCard from "../components/MovieCard";
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
 
 const TrendingPage = () => {
-  const { data, isError, error } = useTrending();
+  const { data, isLoading, isError, error } = useTrending();
 
   if (isError) throw error;
 
@@ -12,9 +13,11 @@ const TrendingPage = () => {
         Trending
       </h2>
       <div className="grid-container mt-5">
-        {data?.results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {isLoading
+          ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
+          : data?.results.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
       </div>
     </section>
   );

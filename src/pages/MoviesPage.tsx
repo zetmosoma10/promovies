@@ -1,8 +1,9 @@
 import MovieCard from "../components/MovieCard";
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useMovies from "../hooks/useMovies";
 
 const MoviesPage = () => {
-  const { data, isError, error } = useMovies();
+  const { data, isLoading, isError, error } = useMovies();
 
   if (isError) throw error;
 
@@ -12,9 +13,11 @@ const MoviesPage = () => {
         Movies
       </h2>
       <div className="relative grid-container mt-5">
-        {data?.results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {isLoading
+          ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
+          : data?.results.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
       </div>
     </section>
   );
