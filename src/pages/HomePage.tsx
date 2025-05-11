@@ -1,5 +1,5 @@
 import Banner from "../components/Banner";
-import TopRatedMovies from "../components/TopRatedMovies";
+import LatestMovies from "../components/LatestMovies";
 import TopRatedTVShows from "../components/TopRatedTVShows";
 import TrendingSlider from "../components/TrendingSlider";
 
@@ -8,8 +8,7 @@ const HomePage = () => {
     <>
       <Banner />
       <TrendingSlider />
-      <TopRatedMovies />
-
+      <LatestMovies />
       <TopRatedTVShows />
     </>
   );
