@@ -4,6 +4,7 @@ import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useMovies from "../hooks/useMovies";
 import GenreList from "../components/GenreList";
 import useGenreMovies from "../hooks/useGenreMovies";
+import MovieHeader from "../components/MovieHeader";
 
 const MoviesPage = () => {
   const { data, isLoading, isError, error } = useMovies();
@@ -13,8 +14,8 @@ const MoviesPage = () => {
 
   return (
     <section className="max-container">
-      <div className="flex items-center justify-between mt-6">
-        <h2 className="figtree text-gray-50 font-medium text-3xl">Movies</h2>
+      <div className="flex items-center justify-between mt-10">
+        <MovieHeader />
         <GenreList genres={genres} />
       </div>
       <div className="relative grid-container mt-10 ">
