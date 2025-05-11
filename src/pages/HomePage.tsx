@@ -1,13 +1,15 @@
 import Banner from "../components/Banner";
 import TopRatedMovies from "../components/TopRatedMovies";
 import TopRatedTVShows from "../components/TopRatedTVShows";
+import TrendingSlider from "../components/TrendingSlider";
 
 const HomePage = () => {
   return (
     <>
-      <Banner />;
-      <TopRatedMovies />
-      <TopRatedTVShows />
+      {/* <Banner /> */}
+      <TrendingSlider />
+      {/* <TopRatedMovies /> */}
+      {/* <TopRatedTVShows /> */}
     </>
   );
 };

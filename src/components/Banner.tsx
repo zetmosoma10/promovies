@@ -1,9 +1,9 @@
-import { POSTER_URL } from "../constance";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa6";
+import { POSTER_URL } from "../constance";
 import useTrending from "../hooks/useTrending";
-import { Link } from "react-router-dom";
 
 const Banner = () => {
   const { data, isError, error } = useTrending();

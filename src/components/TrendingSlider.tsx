@@ -1,0 +1,58 @@
+import { POSTER_URL } from "../constance";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import useTrending from "../hooks/useTrending";
+import Ratings from "./Ratings";
+
+const TrendingSlider = () => {
+  const { data, isLoading, isError, error } = useTrending();
+
+  if (isError) throw error;
+
+  const tvseries = data?.results.filter(
+    (movie) => movie.media_type === "tv" && movie.vote_average >= 7
+  );
+
+  return (
+    <section>
+      <h2 className="text-gray-50 text-center text-2xl mb-4">
+        Trending TV Series
+      </h2>
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        slidesPerView={3}
+        spaceBetween={8}
+      >
+        {/* <div className="flex items-center space-x-4 overflow-x-scroll scrollbar-hide"> */}
+        {tvseries?.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            <div className="relative min-w-[450px] h-[220px] rounded-lg overflow-hidden shadow-lg group mr-1">
+              <div className="z-10">
+                <Ratings rating={movie.vote_average} />
+              </div>
+              <img
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
+                src={`${POSTER_URL}original${movie.backdrop_path}`}
+              />
+
+              {/* Hover Overlay with Fade Top Shadow */}
+              <div className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-100">
+                {/* Movie Info */}
+                <h3 className="text-lg font-semibold z-10 relative leading-5">
+                  {movie.title || movie.name}
+                </h3>
+                <p className="text-sm z-10 relative">
+                  Year: {movie.release_date || movie.first_air_date}
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+        {/* </div> */}
+      </Swiper>
+    </section>
+  );
+};
+
+export default TrendingSlider;
