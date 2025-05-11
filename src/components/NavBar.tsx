@@ -10,6 +10,18 @@ const NavBar = () => {
         <ul className="hidden text-gray-200 sm:flex sm:items-center sm:space-x-5 md:space-x-8">
           <li>
             <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-semibold text-mintGreen"
+                  : "text-lightGray hover:text-mintGreen hover:font-semibold"
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="trending"
               className={({ isActive }) =>
                 isActive

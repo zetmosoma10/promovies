@@ -10,8 +10,8 @@ const TopRatedMovies = () => {
 
   return (
     <section className="max-container">
-      <h2 className="font-medium text-3xl text-gray-50">Top Rated Movies</h2>
-      <div className="relative grid-container mt-4">
+      <h2 className="font-medium text-4xl text-gray-50">Top Rated Movies</h2>
+      <div className="relative grid-container mt-5">
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
           : data?.results.map((movie) => (
