@@ -17,7 +17,7 @@ const MoviesPage = () => {
         <h2 className="figtree text-gray-50 font-medium text-3xl">Movies</h2>
         <GenreList genres={genres} />
       </div>
-      <div className="relative grid-container mt-5">
+      <div className="relative grid-container mt-10 ">
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
           : data?.results.map((movie) => (

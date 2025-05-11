@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <header className="py-3">
+    <header className="py-3 border-b border-b-surfaceColor">
       <nav className="flex items-center justify-between max-container ">
         <Link to="/" className="text-2xl font-bold text-mintGreen">
           PROMOVIES
