@@ -3,7 +3,7 @@ import type { MovieQuery } from "./types/MovieQuery";
 
 type Store = {
   movieQuery: MovieQuery;
-  setGenre: (genreId: number) => void;
+  setGenre: (genreId?: number) => void;
 };
 
 const useMovieStore = create<Store>((set) => ({

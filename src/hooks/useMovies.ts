@@ -2,13 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import type { Movie } from "../types/Movie";
 import APIClient from "../services/apiClient";
 import ms from "ms";
+import useMovieStore from "../store";
 
-const apiClient = new APIClient<Movie>("/movie/popular");
+const apiClient = new APIClient<Movie>("/discover/movie");
 
 const useMovies = () => {
+  const movieQuery = useMovieStore((s) => s.movieQuery);
+
   return useQuery({
-    queryKey: ["Popular-Movies"],
-    queryFn: () => apiClient.getAll(),
+    queryKey: ["Movies", movieQuery],
+    queryFn: () =>
+      apiClient.getAll({
+        params: {
+          with_genres: movieQuery.with_genres,
+        },
+      }),
     staleTime: ms("3h"),
   });
 };

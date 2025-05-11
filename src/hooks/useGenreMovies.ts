@@ -6,7 +6,7 @@ const apiClient = new APIClient("/genre/movie/list");
 
 const useGenreMovies = () => {
   return useQuery({
-    queryKey: ["Genres-Movies"],
+    queryKey: ["GenresList-Movies"],
     queryFn: () => apiClient.getGenres(),
     staleTime: ms("24h"),
   });

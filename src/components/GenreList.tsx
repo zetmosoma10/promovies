@@ -11,8 +11,10 @@ const GenreList = ({ genres }: Props) => {
 
   return (
     <select
-      onChange={(event) => setGenre(+event.target.value)}
-      value={genreId}
+      onChange={(event) =>
+        setGenre(event.target.value === "" ? undefined : +event.target.value)
+      }
+      value={genreId ?? ""}
       className="text-gray-50 focus:outline-none p-2 rounded-md font-medium bg-surfaceColor cursor-pointer focus:border focus:border-mintGreen "
     >
       <option value="">Genres</option>

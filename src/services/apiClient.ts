@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 import type { FetchResponse } from "../types/FetchResponse";
 import type { GenreResponse } from "../types/Genre";
 
@@ -18,8 +18,10 @@ class APIClient<T> {
     this.endpoint = endpoint;
   }
 
-  getAll() {
-    return api.get<FetchResponse<T>>(this.endpoint).then((res) => res.data);
+  getAll(config?: AxiosRequestConfig) {
+    return api
+      .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
   }
 
   getGenres() {
