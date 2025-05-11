@@ -28,8 +28,8 @@ const MoviesPage = () => {
               </Link>
             ))}
       </div>
-      <div className="flex items-center justify-center">
-        <Pagination />
+      <div className="flex items-center justify-center mt-10">
+        <Pagination page={data?.page || 1} />
       </div>
     </section>
   );

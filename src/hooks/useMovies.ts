@@ -15,6 +15,7 @@ const useMovies = () => {
       apiClient.getAll({
         params: {
           with_genres: movieQuery.with_genres,
+          page: movieQuery.page,
         },
       }),
     staleTime: ms("3h"),

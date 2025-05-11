@@ -4,13 +4,31 @@ import type { MovieQuery } from "./types/MovieQuery";
 type Store = {
   movieQuery: MovieQuery;
   setGenre: (genreId?: number) => void;
+  setNextPage: () => void;
+  setPrevPage: () => void;
 };
 
 const useMovieStore = create<Store>((set) => ({
-  movieQuery: {},
+  movieQuery: {
+    page: 1,
+  },
   setGenre: (genreId) =>
     set((prevState) => ({
       movieQuery: { ...prevState.movieQuery, with_genres: genreId },
+    })),
+  setNextPage: () =>
+    set((prevState) => ({
+      movieQuery: {
+        ...prevState.movieQuery,
+        page: prevState.movieQuery.page + 1,
+      },
+    })),
+  setPrevPage: () =>
+    set((prevState) => ({
+      movieQuery: {
+        ...prevState.movieQuery,
+        page: prevState.movieQuery.page - 1,
+      },
     })),
 }));
 
