@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import type { FetchResponse } from "../types/FetchResponse";
-import api from "../services/apiClient";
+import type { Movie } from "../types/Movie";
+import APIClient from "../services/apiClient";
 import ms from "ms";
+
+const apiClient = new APIClient<Movie>("/tv/top_rated");
 
 const useTopTVShows = () => {
   return useQuery({
     queryKey: ["Top-TVShows"],
-    queryFn: () =>
-      api.get<FetchResponse>("/tv/top_rated").then((res) => res.data),
+    queryFn: () => apiClient.getAll(),
     staleTime: ms("10h"),
   });
 };

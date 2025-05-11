@@ -1,5 +1,3 @@
-import type { Movie } from "./Movie";
-
-export type FetchResponse = {
-  results: Movie[];
+export type FetchResponse<T> = {
+  results: T[];
 };
