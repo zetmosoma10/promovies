@@ -5,6 +5,7 @@ import useMovies from "../hooks/useMovies";
 import GenreList from "../components/GenreList";
 import useGenreMovies from "../hooks/useGenreMovies";
 import MovieHeader from "../components/MovieHeader";
+import Pagination from "../components/Pagination";
 
 const MoviesPage = () => {
   const { data, isLoading, isError, error } = useMovies();
@@ -26,6 +27,9 @@ const MoviesPage = () => {
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}
+      </div>
+      <div className="flex items-center justify-center">
+        <Pagination />
       </div>
     </section>
   );
