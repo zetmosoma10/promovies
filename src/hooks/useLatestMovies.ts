@@ -5,7 +5,7 @@ import ms from "ms";
 
 const apiClient = new APIClient<Movie>("/discover/movie");
 
-const useTopMovies = () => {
+const useLatestMovies = () => {
   return useQuery({
     queryKey: ["Top-Movies"],
     queryFn: () =>
@@ -19,4 +19,4 @@ const useTopMovies = () => {
   });
 };
 
-export default useTopMovies;
+export default useLatestMovies;

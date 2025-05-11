@@ -1,6 +1,6 @@
 import Banner from "../components/Banner";
 import LatestMovies from "../components/LatestMovies";
-import TopRatedTVShows from "../components/TopRatedTVShows";
+import LatestTVShows from "../components/LatestTVShows";
 import TrendingSlider from "../components/TrendingSlider";
 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
       <Banner />
       <TrendingSlider />
       <LatestMovies />
-      <TopRatedTVShows />
+      <LatestTVShows />
     </>
   );
 };

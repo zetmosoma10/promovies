@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import useTopMovies from "../hooks/useTopMovies";
+import useLatestMovies from "../hooks/useLatestMovies";
 import MovieCard from "./MovieCard";
 import MovieCardSkeleton from "./MovieCardSkeleton";
 
 const LatestMovies = () => {
-  const { data, isLoading, isError, error } = useTopMovies();
+  const { data, isLoading, isError, error } = useLatestMovies();
 
   if (isError) throw error;
 

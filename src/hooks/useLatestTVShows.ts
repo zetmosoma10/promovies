@@ -3,14 +3,19 @@ import type { Movie } from "../types/Movie";
 import APIClient from "../services/apiClient";
 import ms from "ms";
 
-const apiClient = new APIClient<Movie>("/tv/top_rated");
+const apiClient = new APIClient<Movie>("/discover/tv");
 
-const useTopTVShows = () => {
+const useLatestTVShows = () => {
   return useQuery({
     queryKey: ["Top-TVShows"],
-    queryFn: () => apiClient.getAll(),
+    queryFn: () =>
+      apiClient.getAll({
+        params: {
+          "first_air_date.gte": "2023-01-01",
+        },
+      }),
     staleTime: ms("10h"),
   });
 };
 
-export default useTopTVShows;
+export default useLatestTVShows;
