@@ -1,6 +1,6 @@
 import { POSTER_URL } from "../constance";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import useTrending from "../hooks/useTrending";
 import Ratings from "./Ratings";
 
@@ -9,8 +9,8 @@ const TrendingSlider = () => {
 
   if (isError) throw error;
 
-  const tvseries = data?.results.filter(
-    (movie) => movie.media_type === "tv" && movie.vote_average >= 7
+  const tvSeries = data?.results.filter(
+    (movie) => movie.media_type === "tv" && movie.vote_average >= 6.5
   );
 
   return (
@@ -21,24 +21,26 @@ const TrendingSlider = () => {
       <Swiper
         modules={[Navigation]}
         navigation
-        slidesPerView={3}
         spaceBetween={8}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          920: { slidesPerView: 3 },
+        }}
       >
-        {/* <div className="flex items-center space-x-4 overflow-x-scroll scrollbar-hide"> */}
-        {tvseries?.map((movie) => (
+        {tvSeries?.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <div className="relative min-w-[450px] h-[220px] rounded-lg overflow-hidden shadow-lg group mr-1">
+            <div className="relative w-full h-[220px] rounded-lg overflow-hidden shadow-lg group mr-1">
               <div className="z-10">
                 <Ratings rating={movie.vote_average} />
               </div>
+
               <img
                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                 src={`${POSTER_URL}original${movie.backdrop_path}`}
               />
 
-              {/* Hover Overlay with Fade Top Shadow */}
               <div className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-100">
-                {/* Movie Info */}
                 <h3 className="text-lg font-semibold z-10 relative leading-5">
                   {movie.title || movie.name}
                 </h3>
@@ -49,7 +51,6 @@ const TrendingSlider = () => {
             </div>
           </SwiperSlide>
         ))}
-        {/* </div> */}
       </Swiper>
     </section>
   );

@@ -7,7 +7,7 @@ type Props = {
   isTrending?: boolean;
 };
 
-const MovieCard = ({ movie, isTrending }: Props) => {
+const MovieCard = ({ movie }: Props) => {
   return (
     <div className="relative h-[340px] rounded-lg overflow-hidden shadow-lg group transform transition-transform duration-300 hover:scale-105 will-change-transform">
       <div className="z-10">
@@ -15,9 +15,7 @@ const MovieCard = ({ movie, isTrending }: Props) => {
       </div>
       <img
         className="w-full h-full object-cover"
-        src={`${POSTER_URL}${IMG_SIZE}${
-          isTrending ? movie.backdrop_path : movie.poster_path
-        }`}
+        src={`${POSTER_URL}${IMG_SIZE}${movie.poster_path}`}
       />
 
       {/* Hover Overlay with Fade Top Shadow */}
