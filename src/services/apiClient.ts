@@ -1,5 +1,6 @@
 import axios from "axios";
 import type { FetchResponse } from "../types/FetchResponse";
+import type { GenreResponse } from "../types/Genre";
 
 const api_key = import.meta.env.VITE_API_KEY;
 
@@ -19,6 +20,10 @@ class APIClient<T> {
 
   getAll() {
     return api.get<FetchResponse<T>>(this.endpoint).then((res) => res.data);
+  }
+
+  getGenres() {
+    return api.get<GenreResponse>(this.endpoint).then((res) => res.data.genres);
   }
 }
 
