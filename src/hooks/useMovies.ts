@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import type { FetchResponse } from "../types/FetchResponse";
 import api from "../services/apiClient";
+import ms from "ms";
 
 const useMovies = () => {
   return useQuery({
-    queryKey: ["movies", "poplular"],
+    queryKey: ["Popular-Movies"],
     queryFn: () =>
       api.get<FetchResponse>("/movie/popular").then((res) => res.data),
-    staleTime: 24 * 60 * 60 * 1000,
+    staleTime: ms("3h"),
   });
 };
 
