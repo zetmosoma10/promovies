@@ -14,11 +14,11 @@ const MoviesPage = () => {
 
   return (
     <section className="max-container">
-      <div className="flex items-center justify-between mt-10">
-        <MovieHeader />
+      <div className="flex items-center justify-between my-10">
+        <MovieHeader>Movies</MovieHeader>
         <GenreList genres={genres} />
       </div>
-      <div className="relative grid-container mt-10 ">
+      <div className="relative grid-container">
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
           : data?.results.map((movie) => (
