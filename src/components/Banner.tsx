@@ -3,15 +3,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa6";
 import { POSTER_URL } from "../constance";
-import useTrending from "../hooks/useTrending";
+import useTrendingMovies from "../hooks/useTrendingMovies";
 
 const Banner = () => {
-  const { data, isError, error } = useTrending();
+  const { data, isError, error } = useTrendingMovies();
 
   if (isError) throw error;
 
   const filteredMovies = data?.results.filter(
-    (movie) => movie.media_type !== "tv" && movie.vote_average >= 7
+    (movie) => movie.vote_average >= 6.5
   );
 
   return (
@@ -20,7 +20,6 @@ const Banner = () => {
         modules={[Navigation, Pagination, Autoplay]}
         loop
         navigation
-        pagination={{ clickable: true }}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         slidesPerView={1}
         className="w-full h-full"
