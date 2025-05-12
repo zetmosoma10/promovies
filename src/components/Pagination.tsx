@@ -1,21 +1,22 @@
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import useMovieStore from "../store";
+import type { Category } from "../types/Category";
 
 type Props = {
-  page: number;
+  category: Category;
 };
 
-const Pagination = ({ page }: Props) => {
+const Pagination = ({ category }: Props) => {
   const setNextPage = useMovieStore((s) => s.setNextPage);
   const setPrevPage = useMovieStore((s) => s.setPrevPage);
-  const pageNumber = useMovieStore((s) => s.movieQuery.page);
+  const pageNumber = useMovieStore((s) => s.movieQuery[category].page);
   console.log(pageNumber);
 
   return (
     <div className="flex items-center space-x-4">
       {pageNumber > 1 && (
         <button
-          onClick={() => setPrevPage()}
+          onClick={() => setPrevPage(category)}
           className="flex items-center space-x-2 text-gray-50 bg-surfaceColor px-4 py-2 rounded-3xl group active:bg-mintGreen font-medium"
         >
           <span className="text-gray-50">
@@ -25,7 +26,7 @@ const Pagination = ({ page }: Props) => {
         </button>
       )}
       <button
-        onClick={() => setNextPage()}
+        onClick={() => setNextPage(category)}
         className="flex items-center space-x-2 text-gray-50 bg-surfaceColor px-4 py-2 rounded-3xl group active:bg-mintGreen font-medium"
       >
         <span>Next</span>

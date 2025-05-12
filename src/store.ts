@@ -1,33 +1,39 @@
 import { create } from "zustand";
 import type { MovieQuery } from "./types/MovieQuery";
+import type { Category } from "./types/Category";
 
 type Store = {
-  movieQuery: MovieQuery;
-  setGenre: (genreId?: number) => void;
-  setNextPage: () => void;
-  setPrevPage: () => void;
+  movieQuery: Record<Category, MovieQuery>;
+  setGenre: (category: Category, genreId?: number) => void;
+  setNextPage: (category: Category) => void;
+  setPrevPage: (category: Category) => void;
 };
 
 const useMovieStore = create<Store>((set) => ({
   movieQuery: {
-    page: 1,
+    tv: { page: 1 },
+    movie: { page: 1 },
+    trending: { page: 1 },
   },
-  setGenre: (genreId) =>
-    set((prevState) => ({
-      movieQuery: { ...prevState.movieQuery, with_genres: genreId, page: 1 },
-    })),
-  setNextPage: () =>
-    set((prevState) => ({
+  setGenre: (category, genreId) =>
+    set((state) => ({
       movieQuery: {
-        ...prevState.movieQuery,
-        page: prevState.movieQuery.page + 1,
+        ...state.movieQuery,
+        [category]: { with_genres: genreId, page: 1 },
       },
     })),
-  setPrevPage: () =>
-    set((prevState) => ({
+  setNextPage: (category) =>
+    set((state) => ({
       movieQuery: {
-        ...prevState.movieQuery,
-        page: prevState.movieQuery.page - 1,
+        ...state.movieQuery,
+        [category]: { page: state.movieQuery[category].page + 1 },
+      },
+    })),
+  setPrevPage: (category) =>
+    set((state) => ({
+      movieQuery: {
+        ...state.movieQuery,
+        [category]: { page: state.movieQuery[category].page - 1 },
       },
     })),
 }));

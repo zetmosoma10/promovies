@@ -8,7 +8,7 @@ import MovieHeader from "../components/MovieHeader";
 import Pagination from "../components/Pagination";
 
 const MoviesPage = () => {
-  const { data, isLoading, isError, error } = useMovies();
+  const { data, isLoading, isError, error } = useMovies("movie");
   const { data: genres } = useGenreMovies();
 
   if (isError) throw error;
@@ -16,8 +16,8 @@ const MoviesPage = () => {
   return (
     <section className="max-container">
       <div className="flex items-center justify-between my-10">
-        <MovieHeader>Movies</MovieHeader>
-        <GenreList genres={genres} />
+        <MovieHeader category="movie">Movies</MovieHeader>
+        <GenreList category="movie" genres={genres} />
       </div>
       <div className="relative grid-container">
         {isLoading
@@ -29,7 +29,7 @@ const MoviesPage = () => {
             ))}
       </div>
       <div className="flex items-center justify-center mt-10">
-        <Pagination page={data?.page || 1} />
+        <Pagination category="movie" />
       </div>
     </section>
   );

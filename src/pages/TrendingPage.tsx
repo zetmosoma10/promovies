@@ -12,7 +12,9 @@ const TrendingPage = () => {
   return (
     <section className="max-container">
       <div className="my-10">
-        <MovieHeader>Trending</MovieHeader>
+        <h1 className="figtree text-gray-50 font-semibold text-5xl">
+          Trending
+        </h1>
       </div>
       <div className="mt-5 grid-container">
         {isLoading

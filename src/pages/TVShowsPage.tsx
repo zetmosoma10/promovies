@@ -7,7 +7,7 @@ import useGenreTVShows from "../hooks/useGenreTVShows";
 import MovieHeader from "../components/MovieHeader";
 
 const TVShowsPage = () => {
-  const { data, isLoading, isError, error } = useTVShows();
+  const { data, isLoading, isError, error } = useTVShows("tv");
   const { data: genres, isError: isGenreError } = useGenreTVShows();
 
   if (isError) throw error;
@@ -16,8 +16,8 @@ const TVShowsPage = () => {
   return (
     <section className="max-container">
       <div className="flex items-center justify-between my-10">
-        <MovieHeader>TV Shows</MovieHeader>
-        <GenreList genres={genres} />
+        <MovieHeader category="tv">TV Shows</MovieHeader>
+        <GenreList category="tv" genres={genres} />
       </div>
       <div className="grid-container">
         {isLoading
