@@ -5,6 +5,7 @@ import useTVShows from "../hooks/useTVShows";
 import GenreList from "../components/GenreList";
 import useGenreTVShows from "../hooks/useGenreTVShows";
 import MovieHeader from "../components/MovieHeader";
+import Pagination from "../components/Pagination";
 
 const TVShowsPage = () => {
   const { data, isLoading, isError, error } = useTVShows("tv");
@@ -27,6 +28,9 @@ const TVShowsPage = () => {
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}
+      </div>
+      <div className="flex items-center justify-center mt-10">
+        <Pagination category="tv" />
       </div>
     </section>
   );

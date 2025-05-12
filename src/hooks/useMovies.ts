@@ -8,15 +8,15 @@ import useMovieStore from "../store";
 const apiClient = new APIClient<Movie>("/discover/movie");
 
 const useMovies = (category: Category) => {
-  const movieQuery = useMovieStore((s) => s.movieQuery);
+  const query = useMovieStore((s) => s.movieQuery[category]);
 
   return useQuery({
-    queryKey: ["Movies", movieQuery[category]],
+    queryKey: ["Movies", query],
     queryFn: () =>
       apiClient.getAll({
         params: {
-          with_genres: movieQuery[category].with_genres,
-          page: movieQuery[category].page,
+          with_genres: query.with_genres,
+          page: query.page,
         },
       }),
     staleTime: ms("3h"),
