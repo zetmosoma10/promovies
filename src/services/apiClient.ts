@@ -25,8 +25,8 @@ class APIClient<T> {
       .then((res) => res.data);
   }
 
-  getMovie() {
-    return api.get<Movie>(this.endpoint).then((res) => res.data);
+  getMovie(config?: AxiosRequestConfig) {
+    return api.get<Movie>(this.endpoint, config).then((res) => res.data);
   }
 
   getGenres() {

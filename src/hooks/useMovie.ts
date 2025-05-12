@@ -6,7 +6,12 @@ const useMovie = (id: number) => {
 
   return useQuery({
     queryKey: ["Movie", id],
-    queryFn: () => apiClient.getMovie(),
+    queryFn: () =>
+      apiClient.getMovie({
+        params: {
+          append_to_response: "videos,credits,recommendations,external_ids",
+        },
+      }),
   });
 };
 
