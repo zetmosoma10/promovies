@@ -46,7 +46,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="tvshows"
+              to="tv-shows"
               className={({ isActive }) =>
                 isActive
                   ? "font-semibold text-mintGreen"

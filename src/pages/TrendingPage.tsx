@@ -4,6 +4,7 @@ import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
 import MovieHeader from "../components/MovieHeader";
 import Pagination from "../components/Pagination";
+import generateSlug from "../services/generateSlug";
 
 const TrendingPage = () => {
   const { data, isLoading, isError, error } = useTrending("trending");
@@ -19,7 +20,7 @@ const TrendingPage = () => {
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
-              <Link to={`${movie.id}`}>
+              <Link to={`${generateSlug(movie)}`} key={movie.id}>
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}

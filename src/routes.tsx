@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <MoviesPage />,
       },
       {
-        path: "movies/:id",
+        path: "movies/:slug",
         element: <MovieDetailPage />,
       },
       {
@@ -30,15 +30,15 @@ const router = createBrowserRouter([
         element: <TrendingPage />,
       },
       {
-        path: "trending/:id",
+        path: "trending/:slug",
         element: <MovieDetailPage />,
       },
       {
-        path: "tvshows",
+        path: "tv-shows",
         element: <TVShowsPage />,
       },
       {
-        path: "tvshows/:id",
+        path: "tv-shows/:slug",
         element: <MovieDetailPage />,
       },
     ],

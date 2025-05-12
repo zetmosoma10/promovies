@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { POSTER_URL } from "../constance";
 import type { Movie } from "../types/Movie";
 import Ratings from "./Ratings";
+import generateSlug from "../services/generateSlug";
 
 type Props = {
   movie: Movie;
@@ -20,7 +21,7 @@ const MovieCardSlider = ({ movie }: Props) => {
       />
 
       <Link
-        to={`tv-shows/${movie.id}`}
+        to={`tv-shows/${generateSlug(movie)}`}
         className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-100"
       >
         <h3 className="text-lg font-semibold z-10 relative leading-5">

@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa6";
 import { POSTER_URL } from "../constance";
 import useTrendingMovies from "../hooks/useTrendingMovies";
+import generateSlug from "../services/generateSlug";
 
 const Banner = () => {
   const { data, isError, error } = useTrendingMovies();
@@ -33,7 +34,7 @@ const Banner = () => {
               }}
             >
               <Link
-                to={`movies/${movie.id}`}
+                to={`movies/${generateSlug(movie)}`}
                 className="w-full p-4 border rounded-lg border-mintGreen text-gray-50 bg-surfaceColor/40 backdrop-blur-sm"
               >
                 {/* Rates & Year */}

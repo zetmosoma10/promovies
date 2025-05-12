@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useLatestMovies from "../hooks/useLatestMovies";
 import MovieCard from "./MovieCard";
 import MovieCardSkeleton from "./MovieCardSkeleton";
+import generateSlug from "../services/generateSlug";
 
 const LatestMovies = () => {
   const { data, isLoading, isError, error } = useLatestMovies();
@@ -15,7 +16,7 @@ const LatestMovies = () => {
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
-              <Link to={`movies/${movie.id}`}>
+              <Link to={`movies/${generateSlug(movie)}`} key={movie.id}>
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}

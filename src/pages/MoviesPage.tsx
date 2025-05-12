@@ -6,6 +6,7 @@ import GenreList from "../components/GenreList";
 import useGenreMovies from "../hooks/useGenreMovies";
 import MovieHeader from "../components/MovieHeader";
 import Pagination from "../components/Pagination";
+import generateSlug from "../services/generateSlug";
 
 const MoviesPage = () => {
   const { data, isLoading, isError, error } = useMovies("movie");
@@ -23,7 +24,7 @@ const MoviesPage = () => {
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
-              <Link to={`${movie.id}`}>
+              <Link to={`${generateSlug(movie)}`}>
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}
