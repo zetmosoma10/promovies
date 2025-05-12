@@ -14,7 +14,7 @@ const useMovieStore = create<Store>((set) => ({
   },
   setGenre: (genreId) =>
     set((prevState) => ({
-      movieQuery: { ...prevState.movieQuery, with_genres: genreId },
+      movieQuery: { ...prevState.movieQuery, with_genres: genreId, page: 1 },
     })),
   setNextPage: () =>
     set((prevState) => ({

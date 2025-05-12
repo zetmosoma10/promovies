@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
+import MovieHeader from "../components/MovieHeader";
 
 const TrendingPage = () => {
   const { data, isLoading, isError, error } = useTrending();
@@ -10,9 +11,9 @@ const TrendingPage = () => {
 
   return (
     <section className="max-container">
-      <h2 className="mt-6 text-3xl font-medium figtree text-gray-50">
-        Trending
-      </h2>
+      <div className="my-10">
+        <MovieHeader>Trending</MovieHeader>
+      </div>
       <div className="mt-5 grid-container">
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)

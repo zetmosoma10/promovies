@@ -1,6 +1,7 @@
 import { POSTER_URL, IMG_SIZE } from "../constance";
 import type { Movie } from "../types/Movie";
 import Ratings from "./Ratings";
+import noImgPlaceholder from "../assets/no-image-placeholder-6f3882e0.webp";
 
 type Props = {
   movie: Movie;
@@ -8,15 +9,16 @@ type Props = {
 };
 
 const MovieCard = ({ movie }: Props) => {
+  const imgPath = movie.poster_path
+    ? `${POSTER_URL}${IMG_SIZE}${movie.poster_path}`
+    : noImgPlaceholder;
+
   return (
     <div className="relative h-[340px] rounded-lg overflow-hidden shadow-lg group transform transition-transform duration-300 hover:scale-105 will-change-transform">
       <div className="z-10">
         <Ratings rating={movie.vote_average} />
       </div>
-      <img
-        className="w-full h-full object-cover"
-        src={`${POSTER_URL}${IMG_SIZE}${movie.poster_path}`}
-      />
+      <img className="w-full h-full object-cover" src={imgPath} />
 
       {/* Hover Overlay with Fade Top Shadow */}
       <div className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
