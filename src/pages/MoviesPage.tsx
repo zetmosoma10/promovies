@@ -24,7 +24,7 @@ const MoviesPage = () => {
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
-              <Link to={`${generateSlug(movie)}`}>
+              <Link to={`${generateSlug(movie)}`} key={movie.id}>
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}
