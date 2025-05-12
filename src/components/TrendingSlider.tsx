@@ -1,18 +1,16 @@
-import { POSTER_URL } from "../constance";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import useTrending from "../hooks/useTrending";
-import Ratings from "./Ratings";
 import { Link } from "react-router-dom";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { POSTER_URL } from "../constance";
+import useTrendingTVShows from "../hooks/useTrendingTVshows";
+import Ratings from "./Ratings";
 
 const TrendingSlider = () => {
-  const { data, isError, error } = useTrending();
+  const { data, isError, error } = useTrendingTVShows();
 
   if (isError) throw error;
 
-  const tvSeries = data?.results.filter(
-    (movie) => movie.media_type === "tv" && movie.vote_average >= 6.5
-  );
+  const tvSeries = data?.results.filter((movie) => movie.vote_average >= 6.5);
 
   return (
     <section className="my-10">
