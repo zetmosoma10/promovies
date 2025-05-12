@@ -6,6 +6,7 @@ import TVShowsPage from "./pages/TVShowsPage";
 import Layout from "./pages/Layout";
 import ErrorPage from "./pages/ErrorPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
+import TVShowDetailPage from "./pages/TVShowDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "trending/:slug",
-        element: <MovieDetailPage />,
+        element: <TVShowDetailPage />,
       },
       {
         path: "tv-shows",
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tv-shows/:slug",
-        element: <MovieDetailPage />,
+        element: <TVShowDetailPage />,
       },
     ],
   },
