@@ -15,7 +15,7 @@ const LatestTVShows = () => {
         {isLoading
           ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
           : data?.results.map((movie) => (
-              <Link to={`${movie.id}`}>
+              <Link to={`tvshows/${movie.id}`}>
                 <MovieCard key={movie.id} movie={movie} />
               </Link>
             ))}
