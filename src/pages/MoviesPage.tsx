@@ -21,7 +21,7 @@ const MoviesPage = () => {
       </div>
       <div className="relative grid-container">
         {isLoading
-          ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
+          ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
               <Link to={`${movie.id}`}>
                 <MovieCard key={movie.id} movie={movie} />

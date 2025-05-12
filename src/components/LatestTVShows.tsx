@@ -13,7 +13,7 @@ const LatestTVShows = () => {
       <h2 className="font-medium text-4xl text-gray-50 ">Latest TV Series</h2>
       <div className="relative grid-container mt-5">
         {isLoading
-          ? [...Array(10)].map((s) => <MovieCardSkeleton key={s} />)
+          ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.results.map((movie) => (
               <Link to={`tvshows/${movie.id}`}>
                 <MovieCard key={movie.id} movie={movie} />

@@ -10,7 +10,6 @@ const Pagination = ({ category }: Props) => {
   const setNextPage = useMovieStore((s) => s.setNextPage);
   const setPrevPage = useMovieStore((s) => s.setPrevPage);
   const pageNumber = useMovieStore((s) => s.movieQuery[category].page);
-  console.log(pageNumber);
 
   return (
     <div className="flex items-center space-x-4">
