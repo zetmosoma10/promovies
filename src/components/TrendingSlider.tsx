@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { POSTER_URL } from "../constance";
 import useTrendingTVShows from "../hooks/useTrendingTVshows";
-import Ratings from "./Ratings";
+import MovieCardSlider from "./MovieCardSlider";
 
 const TrendingSlider = () => {
   const { data, isError, error } = useTrendingTVShows();
@@ -29,28 +27,7 @@ const TrendingSlider = () => {
       >
         {tvSeries?.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <div className="relative w-full h-[220px] rounded-lg overflow-hidden shadow-lg group mr-1">
-              <div className="z-10">
-                <Ratings rating={movie.vote_average} />
-              </div>
-
-              <img
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
-                src={`${POSTER_URL}original${movie.backdrop_path}`}
-              />
-
-              <Link
-                to={`tvshows/${movie.id}`}
-                className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-100"
-              >
-                <h3 className="text-lg font-semibold z-10 relative leading-5">
-                  {movie.title || movie.name}
-                </h3>
-                <p className="text-sm z-10 relative">
-                  Year: {movie.release_date || movie.first_air_date}
-                </p>
-              </Link>
-            </div>
+            <MovieCardSlider movie={movie} />
           </SwiperSlide>
         ))}
       </Swiper>
