@@ -3,6 +3,7 @@ import MovieCardDetail from "../components/MovieCardDetail";
 import useTVShow from "../hooks/useTVShow";
 import Recommendation from "../components/Recommendation";
 import TrailerVideo from "../components/TrailerVideo";
+import Credits from "../components/Credits";
 
 const TVShowDetailPage = () => {
   const { slug } = useParams();
@@ -18,6 +19,7 @@ const TVShowDetailPage = () => {
       ) : (
         <p className="text-4xl">Loading...</p>
       )}
+      {movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
       {movie?.recommendations.total_results !== 0 && (
         <Recommendation movie={movie} />
       )}

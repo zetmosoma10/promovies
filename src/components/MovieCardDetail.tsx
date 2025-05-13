@@ -11,11 +11,11 @@ const MovieCardDetail = ({ movie }: Props) => {
   const creators = movie?.created_by?.map((c) => c.name);
 
   return (
-    <div className="bg-surfaceColor mt-10 rounded-lg overflow-hidden shadow-md border border-surfaceColor">
+    <div className="mt-10 overflow-hidden border rounded-lg shadow-md bg-surfaceColor border-surfaceColor">
       <img src={`${POSTER_URL}original${movie.backdrop_path}`} />
-      <div className="mt-4 p-4">
+      <div className="p-4 mt-4 ">
         <h3 className="text-3xl font-bold">{movie.name || movie.title}</h3>
-        <p className=" opacity-70 mt-2">{movie.overview}</p>
+        <p className="mt-2 opacity-70">{movie.overview}</p>
 
         <div className="mt-3 w-[75%] md:w-[50%]">
           <div className="grid grid-cols-2 space-x-1">
