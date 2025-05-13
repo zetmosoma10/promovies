@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import ErrorPage from "./pages/ErrorPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import TVShowDetailPage from "./pages/TVShowDetailPage";
+import SearchPage from "./pages/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "tv-shows/:slug",
         element: <TVShowDetailPage />,
+      },
+      {
+        path: "search/:slug",
+        element: <SearchPage />,
       },
     ],
   },
