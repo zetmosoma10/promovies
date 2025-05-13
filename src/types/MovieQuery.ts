@@ -1,4 +1,5 @@
 export type MovieQuery = {
-  with_genres?: number;
   page: number;
+  query?: string;
+  with_genres?: number;
 };

@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <TVShowDetailPage />,
       },
       {
-        path: "search/:slug",
+        path: "search",
         element: <SearchPage />,
       },
     ],
