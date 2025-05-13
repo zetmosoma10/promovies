@@ -1,6 +1,6 @@
 import type { Credit } from "./Credit";
+import type { FetchResponse } from "./FetchResponse";
 import type { Genre } from "./Genre";
-import type { Recommendation } from "./Recommendation";
 import type { Video } from "./Video";
 
 export type Movie = {
@@ -20,7 +20,7 @@ export type Movie = {
   genres: Genre[];
   credits: Credit;
   videos: Video;
-  recommendations: Recommendation;
+  recommendations: FetchResponse<Movie>;
   created_by: { name: string }[];
   production_countries: { name: string }[];
 };

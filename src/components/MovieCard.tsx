@@ -5,7 +5,6 @@ import noImgPlaceholder from "../assets/no-image-placeholder-6f3882e0.webp";
 
 type Props = {
   movie: Movie;
-  isTrending?: boolean;
 };
 
 const MovieCard = ({ movie }: Props) => {
@@ -18,15 +17,15 @@ const MovieCard = ({ movie }: Props) => {
       <div className="z-10">
         <Ratings rating={movie.vote_average} />
       </div>
-      <img className="w-full h-full object-cover" src={imgPath} />
+      <img className="object-cover w-full h-full" src={imgPath} />
 
       {/* Hover Overlay with Fade Top Shadow */}
-      <div className="absolute bottom-0 left-0 w-full  bg-gradient-to-t from-mintGreen to-transparent  text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-0 left-0 w-full p-4 text-white transition-opacity duration-300 opacity-0 bg-gradient-to-t from-mintGreen to-transparent group-hover:opacity-100">
         {/* Movie Info */}
-        <h3 className="text-lg font-semibold z-10 relative leading-5">
+        <h3 className="relative z-10 text-lg font-semibold leading-5">
           {movie.title || movie.name}
         </h3>
-        <p className="text-sm z-10 relative">
+        <p className="relative z-10 text-sm">
           Year: {movie.release_date || movie.first_air_date}
         </p>
       </div>

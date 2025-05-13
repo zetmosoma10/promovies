@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import MovieCardDetail from "../components/MovieCardDetail";
 import useMovie from "../hooks/useMovie";
+import Recommendation from "../components/Recommendation";
 
 const MovieDetailPage = () => {
   const { slug } = useParams();
@@ -9,11 +10,14 @@ const MovieDetailPage = () => {
   const { data: movie } = useMovie(id);
 
   return (
-    <section className="max-container text-gray-50 pb-10">
+    <section className="pb-10 max-container text-gray-50">
       {movie ? (
         <MovieCardDetail movie={movie} />
       ) : (
         <p className="text-4xl">Loading...</p>
+      )}
+      {movie?.recommendations.total_results !== 0 && (
+        <Recommendation movie={movie} />
       )}
     </section>
   );
