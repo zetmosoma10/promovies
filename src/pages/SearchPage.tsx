@@ -5,6 +5,7 @@ import useSearch from "../hooks/useSearch";
 import MovieCard from "../components/MovieCard";
 import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import generateSlug from "../services/generateSlug";
+import Pagination from "../components/Pagination";
 
 const SearchPage = () => {
   const setSearch = useMovieStore((s) => s.setSearch);
@@ -23,7 +24,7 @@ const SearchPage = () => {
   const movies = data?.results.filter((m) => m.media_type !== "person");
 
   return (
-    <section className="text-5xl font-semibold max-container text-gray-50">
+    <section className="font-semibold max-container text-gray-50">
       <h1 className="mt-10 mb-8 text-3xl font-semibold">
         {data?.total_results === 0
           ? `No results for "${query}"`
