@@ -7,7 +7,7 @@ const NavBar = () => {
         <Link to="/" className="text-2xl font-bold text-mintGreen">
           PROMOVIES
         </Link>
-        <ul className="hidden text-gray-200 sm:flex sm:items-center sm:space-x-5 md:space-x-8">
+        <ul className="hidden text-gray-200 md:flex md:items-center md:space-x-8">
           <li>
             <NavLink
               to="/"

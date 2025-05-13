@@ -12,21 +12,18 @@ const TrendingSlider = () => {
 
   return (
     <section className="my-10">
-      <h2 className="text-gray-50 text-center text-2xl mb-4">
+      <h2 className="mb-4 text-2xl text-center text-gray-50">
         Trending TV Series
       </h2>
       <Swiper
         modules={[Navigation]}
         navigation
         spaceBetween={14}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          640: { slidesPerView: 2 },
-          920: { slidesPerView: 3 },
-        }}
+        slidesPerView="auto"
+        
       >
         {tvSeries?.map((movie) => (
-          <SwiperSlide key={movie.id}>
+          <SwiperSlide className="!w-auto" key={movie.id}>
             <MovieCardSlider movie={movie} />
           </SwiperSlide>
         ))}
