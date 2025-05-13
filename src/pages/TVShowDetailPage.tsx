@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import MovieCardDetail from "../components/MovieCardDetail";
 import useTVShow from "../hooks/useTVShow";
 import Recommendation from "../components/Recommendation";
+import TrailerVideo from "../components/TrailerVideo";
 
 const TVShowDetailPage = () => {
   const { slug } = useParams();
@@ -11,6 +12,7 @@ const TVShowDetailPage = () => {
 
   return (
     <section className="max-container text-gray-50">
+      <TrailerVideo movie={movie} />
       {movie ? (
         <MovieCardDetail movie={movie} />
       ) : (
