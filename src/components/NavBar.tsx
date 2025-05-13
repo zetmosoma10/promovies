@@ -14,7 +14,7 @@ const NavBar = () => {
     if (input && input.value !== "") {
       setSearch("search", input.value);
       const encoded = encodeURIComponent(input.value);
-      navigate(`/search?query=${encoded}`, { replace: true });
+      navigate(`/search?query=${encoded}`);
       input.value = "";
     }
   };
