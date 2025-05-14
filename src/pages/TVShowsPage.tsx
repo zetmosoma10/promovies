@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 import MovieCard from "../components/MovieCard";
 import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import useTVShows from "../hooks/useTVShows";
@@ -7,10 +8,26 @@ import useGenreTVShows from "../hooks/useGenreTVShows";
 import MovieHeader from "../components/MovieHeader";
 import Pagination from "../components/Pagination";
 import generateSlug from "../services/generateSlug";
+import React, { useEffect } from "react";
 
 const TVShowsPage = () => {
-  const { data, isLoading, isError, error } = useTVShows("tv");
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+  } = useTVShows("tv");
   const { data: genres, isError: isGenreError } = useGenreTVShows();
+  const { inView, ref } = useInView({ threshold: 0.5 });
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage]);
 
   if (isError) throw error;
   if (isGenreError) return null;
@@ -24,14 +41,20 @@ const TVShowsPage = () => {
       <div className="grid-container">
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
-          : data?.results.map((movie) => (
-              <Link to={`${generateSlug(movie)}`} key={movie.id}>
-                <MovieCard key={movie.id} movie={movie} />
-              </Link>
+          : data?.pages.map((page, index) => (
+              <React.Fragment key={index}>
+                {page.results.map((movie) => (
+                  <Link to={`${generateSlug(movie)}`} key={movie.id}>
+                    <MovieCard key={movie.id} movie={movie} />
+                  </Link>
+                ))}
+              </React.Fragment>
             ))}
       </div>
-      <div className="flex items-center justify-center mt-10">
-        <Pagination category="tv" />
+      <div ref={ref}>
+        {isFetchingNextPage && (
+          <p className="text-gray-50 mt-5 text-center">Loading...</p>
+        )}
       </div>
     </section>
   );
