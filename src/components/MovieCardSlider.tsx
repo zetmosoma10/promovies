@@ -10,7 +10,7 @@ type Props = {
 
 const MovieCardSlider = ({ movie }: Props) => {
   return (
-    <div className="relative w-full h-[220px] rounded-lg overflow-hidden shadow-lg group mr-1">
+    <div className="relative w-full h-[220px] rounded-lg overflow-hidden shadow-lg group">
       <div className="z-10">
         <Ratings rating={movie.vote_average} />
       </div>

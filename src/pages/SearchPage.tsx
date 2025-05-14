@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import useMovieStore from "../store";
 import useSearch from "../hooks/useSearch";
 import MovieCard from "../components/MovieCard";
-import MovieCardSkeleton from "../components/MovieCardSkeleton";
+import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import generateSlug from "../services/generateSlug";
 import Pagination from "../components/Pagination";
 

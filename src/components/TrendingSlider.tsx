@@ -2,9 +2,10 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useTrendingTVShows from "../hooks/useTrendingTVshows";
 import MovieCardSlider from "./MovieCardSlider";
+import MovieCardSliderSkeleton from "../loadingSkeletons/MovieCardSliderSkeleton";
 
 const TrendingSlider = () => {
-  const { data, isError, error } = useTrendingTVShows();
+  const { data, isLoading, isError, error } = useTrendingTVShows();
 
   if (isError) throw error;
 
@@ -15,19 +16,22 @@ const TrendingSlider = () => {
       <h2 className="mb-4 text-2xl text-center text-gray-50">
         Trending TV Series
       </h2>
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={14}
-        slidesPerView="auto"
-        
-      >
-        {tvSeries?.map((movie) => (
-          <SwiperSlide className="!w-auto" key={movie.id}>
-            <MovieCardSlider movie={movie} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {isLoading ? (
+        <MovieCardSliderSkeleton />
+      ) : (
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          spaceBetween={14}
+          slidesPerView="auto"
+        >
+          {tvSeries?.map((movie) => (
+            <SwiperSlide className="!w-auto" key={movie.id}>
+              <MovieCardSlider movie={movie} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </section>
   );
 };

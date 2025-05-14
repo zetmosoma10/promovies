@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
-import MovieCardSkeleton from "../components/MovieCardSkeleton";
+import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import useMovies from "../hooks/useMovies";
 import GenreList from "../components/GenreList";
 import useGenreMovies from "../hooks/useGenreMovies";

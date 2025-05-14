@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useLatestMovies from "../hooks/useLatestMovies";
 import MovieCard from "./MovieCard";
-import MovieCardSkeleton from "./MovieCardSkeleton";
+import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import generateSlug from "../services/generateSlug";
 
 const LatestMovies = () => {

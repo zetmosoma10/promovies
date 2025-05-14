@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
-import MovieCardSkeleton from "../components/MovieCardSkeleton";
+import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
 import MovieHeader from "../components/MovieHeader";
 import Pagination from "../components/Pagination";
