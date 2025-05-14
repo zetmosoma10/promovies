@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import MovieCard from "../components/MovieCard";
@@ -5,7 +6,6 @@ import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
 import MovieHeader from "../components/MovieHeader";
 import generateSlug from "../services/generateSlug";
-import React, { useEffect } from "react";
 
 const TrendingPage = () => {
   const {
@@ -38,8 +38,15 @@ const TrendingPage = () => {
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)
           : data?.pages.map((page, index) => (
               <React.Fragment key={index}>
-                {page.results.map((movie) => (
-                  <Link to={`${generateSlug(movie)}`} key={movie.id}>
+                {page?.results.map((movie) => (
+                  <Link
+                    to={
+                      movie.media_type === "movie"
+                        ? `/movies/${generateSlug(movie)}`
+                        : `/tv-shows/${generateSlug(movie)}`
+                    }
+                    key={movie.id}
+                  >
                     <MovieCard key={movie.id} movie={movie} />
                   </Link>
                 ))}

@@ -25,7 +25,7 @@ const MovieCardDetail = ({ movie }: Props) => {
         />
       </div>
 
-      <div className="flex-1 px-4 pb-3 space-y-4 md:px-0 md:pr-2 md:pt-4">
+      <div className="flex-1 px-4 pb-3 space-y-4 md:px-0 md:pr-4 md:pt-4">
         <h3 className="text-3xl font-bold">{movie.name || movie.title}</h3>
         <p className="mt-2 opacity-70">{movie.overview}</p>
 
