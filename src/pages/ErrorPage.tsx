@@ -30,10 +30,10 @@ const ErrorPage = () => {
           <h1 className="font-semibold roboto text-5xl mb-2">{header}</h1>
           <p className="text-lightGray text-lg">{message}</p>
           <button
-            className="bg-mintGreen px-3 py-2 rounded-md mt-3"
+            className="bg-mintGreen px-3 py-2 rounded-md mt-3 cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            Go back Home
+            Go back
           </button>
         </div>
       </div>
