@@ -16,7 +16,7 @@ const Banner = () => {
   );
 
   return (
-    <section>
+    <section className="bg-surfaceColor">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         loop

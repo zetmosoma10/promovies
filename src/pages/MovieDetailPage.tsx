@@ -4,6 +4,7 @@ import useMovie from "../hooks/useMovie";
 import Recommendation from "../components/Recommendation";
 import TrailerVideo from "../components/TrailerVideo";
 import Credits from "../components/Credits";
+import MovieCardDetailSkeleton from "../loadingSkeletons/MovieCardDetailSkeleton";
 
 const MovieDetailPage = () => {
   const { slug } = useParams();
@@ -14,11 +15,7 @@ const MovieDetailPage = () => {
   return (
     <section className="pb-10 max-container text-gray-50">
       <TrailerVideo movie={movie} />
-      {movie ? (
-        <MovieCardDetail movie={movie} />
-      ) : (
-        <p className="text-4xl">Loading...</p>
-      )}
+      {movie ? <MovieCardDetail movie={movie} /> : <MovieCardDetailSkeleton />}
       {movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
       {movie?.recommendations.total_results !== 0 && (
         <Recommendation movie={movie} />
