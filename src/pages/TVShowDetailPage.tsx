@@ -4,6 +4,7 @@ import useTVShow from "../hooks/useTVShow";
 import Recommendation from "../components/Recommendation";
 import TrailerVideo from "../components/TrailerVideo";
 import Credits from "../components/Credits";
+import MovieCardDetailSkeleton from "../loadingSkeletons/MovieCardDetailSkeleton";
 
 const TVShowDetailPage = () => {
   const { slug } = useParams();
@@ -14,15 +15,15 @@ const TVShowDetailPage = () => {
   return (
     <section className="max-container text-gray-50">
       <TrailerVideo movie={movie} />
-      {movie ? (
-        <MovieCardDetail movie={movie} />
-      ) : (
-        <p className="text-4xl">Loading...</p>
-      )}
-      {movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
-      {movie?.recommendations.total_results !== 0 && (
-        <Recommendation movie={movie} />
-      )}
+      {movie ? <MovieCardDetail movie={movie} /> : <MovieCardDetailSkeleton />}
+      {!movie
+        ? null
+        : movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
+      {!movie
+        ? null
+        : movie?.recommendations.total_results !== 0 && (
+            <Recommendation movie={movie} />
+          )}
     </section>
   );
 };

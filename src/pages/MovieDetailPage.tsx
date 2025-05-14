@@ -16,10 +16,14 @@ const MovieDetailPage = () => {
     <section className="pb-10 max-container text-gray-50">
       <TrailerVideo movie={movie} />
       {movie ? <MovieCardDetail movie={movie} /> : <MovieCardDetailSkeleton />}
-      {movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
-      {movie?.recommendations.total_results !== 0 && (
-        <Recommendation movie={movie} />
-      )}
+      {!movie
+        ? null
+        : movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
+      {!movie
+        ? null
+        : movie?.recommendations.total_results !== 0 && (
+            <Recommendation movie={movie} />
+          )}
     </section>
   );
 };
