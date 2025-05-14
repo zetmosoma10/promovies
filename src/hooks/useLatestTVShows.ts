@@ -15,6 +15,7 @@ const useLatestTVShows = () => {
         },
       }),
     staleTime: ms("10h"),
+    refetchOnWindowFocus: false,
   });
 };
 

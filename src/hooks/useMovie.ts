@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/apiClient";
+import ms from "ms";
 
 const useMovie = (id: number) => {
   const apiClient = new APIClient(`/movie/${id}`);
@@ -12,6 +13,8 @@ const useMovie = (id: number) => {
           append_to_response: "videos,credits,recommendations,external_ids",
         },
       }),
+    staleTime: ms("3h"),
+    refetchOnWindowFocus: false,
   });
 };
 

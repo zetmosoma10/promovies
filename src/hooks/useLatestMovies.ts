@@ -16,6 +16,7 @@ const useLatestMovies = () => {
         },
       }),
     staleTime: ms("24h"),
+    refetchOnWindowFocus: false
   });
 };
 

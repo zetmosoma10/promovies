@@ -10,6 +10,7 @@ const useTrendingMovies = () => {
     queryKey: ["Trending-Movies"],
     queryFn: () => apiClient.getAll(),
     staleTime: ms("3h"),
+    refetchOnWindowFocus: false,
   });
 };
 

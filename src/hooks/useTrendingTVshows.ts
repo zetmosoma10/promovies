@@ -10,6 +10,7 @@ const useTrendingTVShows = () => {
     queryKey: ["Trending-TVShows"],
     queryFn: () => apiClient.getAll(),
     staleTime: ms("3h"),
+    refetchOnWindowFocus: false,
   });
 };
 

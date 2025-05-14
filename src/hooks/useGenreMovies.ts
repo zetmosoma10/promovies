@@ -9,6 +9,7 @@ const useGenreMovies = () => {
     queryKey: ["GenresList-Movies"],
     queryFn: () => apiClient.getGenres(),
     staleTime: ms("24h"),
+    refetchOnWindowFocus: false
   });
 };
 
