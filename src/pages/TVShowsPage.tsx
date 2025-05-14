@@ -6,7 +6,6 @@ import useTVShows from "../hooks/useTVShows";
 import GenreList from "../components/GenreList";
 import useGenreTVShows from "../hooks/useGenreTVShows";
 import MovieHeader from "../components/MovieHeader";
-import Pagination from "../components/Pagination";
 import generateSlug from "../services/generateSlug";
 import React, { useEffect } from "react";
 

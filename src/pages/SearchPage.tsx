@@ -1,25 +1,15 @@
-import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import useMovieStore from "../store";
-import useSearch from "../hooks/useSearch";
 import MovieCard from "../components/MovieCard";
+import useSearch from "../hooks/useSearch";
 import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import generateSlug from "../services/generateSlug";
-import Pagination from "../components/Pagination";
 
 const SearchPage = () => {
-  const setSearch = useMovieStore((s) => s.setSearch);
-  const [searchParam, setSearchParam] = useSearchParams();
+  const [searchParam] = useSearchParams();
   const query = searchParam.get("query");
   const { data, isLoading, isError, error } = useSearch(query);
 
   if (isError) throw error;
-
-  useEffect(() => {
-    if (query) setSearch("search", query);
-
-    return () => setSearch("search", ""); // Clear search on unmount
-  }, [query]);
 
   const movies = data?.results.filter((m) => m.media_type !== "person");
 

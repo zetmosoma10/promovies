@@ -1,19 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import useMovieStore from "../store";
-import { CiSearch } from "react-icons/ci";
 import { useRef, type FormEvent } from "react";
+import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const navigate = useNavigate();
   const ref = useRef<HTMLInputElement>(null);
-  const setSearch = useMovieStore((s) => s.setSearch);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     const input = ref.current;
 
     if (input && input.value !== "") {
-      setSearch("search", input.value);
       const encoded = encodeURIComponent(input.value);
       navigate(`/search?query=${encoded}`);
       input.value = "";
