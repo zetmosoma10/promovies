@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "movies/:slug",
+        errorElement: <ErrorPage />,
         element: <MovieDetailPage />,
       },
       {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "trending/:slug",
+        errorElement: <ErrorPage />,
         element: <TVShowDetailPage />,
       },
       {
@@ -41,6 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tv-shows/:slug",
+        errorElement: <ErrorPage />,
         element: <TVShowDetailPage />,
       },
       {

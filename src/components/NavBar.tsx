@@ -11,7 +11,7 @@ const NavBar = () => {
         </Link>
         <ul className="hidden text-gray-200 md:flex md:items-center md:space-x-8">
           {navLinks.map((link) => (
-            <li>
+            <li key={link.label}>
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
