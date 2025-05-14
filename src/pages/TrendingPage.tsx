@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import { CgSpinner } from "react-icons/cg";
 import MovieCard from "../components/MovieCard";
 import MovieCardSkeleton from "../loadingSkeletons/MovieCardSkeleton";
 import useTrending from "../hooks/useTrending";
@@ -53,9 +54,9 @@ const TrendingPage = () => {
               </React.Fragment>
             ))}
       </div>
-      <div ref={ref}>
+      <div className="py-4 flex justify-center" ref={ref}>
         {isFetchingNextPage && (
-          <p className="text-gray-50 mt-5 text-center">Loading...</p>
+          <CgSpinner className="animate-spin text-3xl text-mintGreen " />
         )}
       </div>
     </section>
