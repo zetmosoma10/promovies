@@ -5,6 +5,7 @@ import Recommendation from "../components/Recommendation";
 import TrailerVideo from "../components/TrailerVideo";
 import Credits from "../components/Credits";
 import MovieCardDetailSkeleton from "../loadingSkeletons/MovieCardDetailSkeleton";
+import BackLink from "../components/BackLink";
 
 const TVShowDetailPage = () => {
   const { slug } = useParams();
@@ -16,6 +17,7 @@ const TVShowDetailPage = () => {
 
   return (
     <section className="max-container text-gray-50">
+      <BackLink />
       <TrailerVideo movie={movie} />
       {movie ? <MovieCardDetail movie={movie} /> : <MovieCardDetailSkeleton />}
       {isLoading

@@ -12,7 +12,7 @@ const TrailerVideo = ({ movie }: Props) => {
   if (!trailer) return null;
 
   return (
-    <div className="mt-10">
+    <div className="mt-8">
       <iframe
         width="100%"
         height="400px"
