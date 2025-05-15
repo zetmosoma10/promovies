@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { navLinks } from "../constance";
 import { RxCross2 } from "react-icons/rx";
+import Logo from "./Logo";
 
 type Props = {
   className: string;
@@ -30,9 +31,9 @@ const SideBar = ({ className, onClose }: Props) => {
           ))}
         </ul>
       </div>
-      <Link to="/" className=" self-center text-2xl font-bold text-mintGreen">
-        PROMOVIES
-      </Link>
+      <div className="self-center">
+        <Logo />
+      </div>
     </aside>
   );
 };

@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "./Search";
 import SideBar from "./SideBar";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const NavBar = () => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -16,7 +17,6 @@ const NavBar = () => {
     setIsSideBarOpen(false);
   };
 
-
   return (
     <header className="relative py-3 border-b border-b-surfaceColor">
       <nav className="flex items-center justify-between max-container ">
@@ -25,9 +25,7 @@ const NavBar = () => {
             onClick={onOpen}
             className="text-xl text-gray-200 md:hidden"
           />
-          <Link to="/" className="text-2xl font-bold text-mintGreen">
-            PROMOVIES
-          </Link>
+          <Logo />
         </div>
         <ul className="hidden text-gray-200 md:flex md:items-center md:space-x-8">
           {navLinks.map((link) => (
