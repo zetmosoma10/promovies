@@ -3,14 +3,28 @@ import { navLinks } from "../constance";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "./Search";
 import SideBar from "./SideBar";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
+  const onOpen = () => {
+    setIsSideBarOpen(true);
+  };
+
+  const onClose = () => {
+    setIsSideBarOpen(false);
+  };
+
+
   return (
     <header className="relative py-3 border-b border-b-surfaceColor">
-      <SideBar className="absolute top-0 left-0 h-screen w-[60%]" />
       <nav className="flex items-center justify-between max-container ">
         <div className="flex items-center space-x-3">
-          <GiHamburgerMenu className="text-xl text-gray-200" />
+          <GiHamburgerMenu
+            onClick={onOpen}
+            className="text-xl text-gray-200 md:hidden"
+          />
           <Link to="/" className="text-2xl font-bold text-mintGreen">
             PROMOVIES
           </Link>
@@ -33,6 +47,18 @@ const NavBar = () => {
         </ul>
         <Search />
       </nav>
+      {isSideBarOpen && (
+        <div
+          onClick={onClose}
+          className="absolute inset-0 w-full h-screen z-40 bg-black bg-opacity-40 "
+        ></div>
+      )}
+      <SideBar
+        onClose={onClose}
+        className={`absolute top-0 left-0 h-screen w-[60%] transition-transform duration-300 ease-in-out z-50 ${
+          isSideBarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      />
     </header>
   );
 };

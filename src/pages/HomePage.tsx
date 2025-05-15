@@ -6,10 +6,10 @@ import TrendingSlider from "../components/TrendingSlider";
 const HomePage = () => {
   return (
     <>
-      {/* <Banner /> */}
-      {/* <TrendingSlider /> */}
-      {/* <LatestMovies /> */}
-      {/* <LatestTVShows /> */}
+      <Banner />
+      <TrendingSlider />
+      <LatestMovies />
+      <LatestTVShows />
     </>
   );
 };
