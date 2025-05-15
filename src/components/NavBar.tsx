@@ -17,6 +17,16 @@ const NavBar = () => {
     setIsSideBarOpen(false);
   };
 
+  useEffect(() => {
+    if (isSideBarOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isSideBarOpen]);
+
   return (
     <header className="relative py-3 border-b border-b-surfaceColor">
       <nav className="flex items-center justify-between max-container ">
