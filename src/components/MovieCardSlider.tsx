@@ -9,6 +9,7 @@ type Props = {
 };
 
 const MovieCardSlider = ({ movie }: Props) => {
+  const imageSize = "w780";
   return (
     <div className="relative w-full h-[170px] md:h-[220px] rounded-lg overflow-hidden shadow-lg group">
       <Link to={`tv-shows/${generateSlug(movie)}`}>
@@ -18,7 +19,7 @@ const MovieCardSlider = ({ movie }: Props) => {
 
         <img
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
-          src={`${POSTER_URL}original${movie.backdrop_path}`}
+          src={`${POSTER_URL}${imageSize}${movie.backdrop_path}`}
         />
 
         <div

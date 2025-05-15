@@ -9,6 +9,7 @@ type Props = {
 };
 
 const Credits = ({ movie }: Props) => {
+  const imageSize = "w185";
   return (
     <div className="mt-10">
       <h4 className="max-container mb-5 text-lg sm:text-xl md:text-2xl font-semibold">
@@ -31,7 +32,7 @@ const Credits = ({ movie }: Props) => {
               className="object-cover rounded-full w-28 h-28 sm:w-32 sm:h-32"
               src={
                 cast.profile_path
-                  ? `${POSTER_URL}original/${cast.profile_path}`
+                  ? `${POSTER_URL}${imageSize}${cast.profile_path}`
                   : noImgPlaceholder
               }
             />

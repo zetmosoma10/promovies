@@ -1,4 +1,4 @@
-import { POSTER_URL, IMG_SIZE } from "../constance";
+import { POSTER_URL } from "../constance";
 import type { Movie } from "../types/Movie";
 import Ratings from "./Ratings";
 import noImgPlaceholder from "../assets/no-image-placeholder-6f3882e0.webp";
@@ -8,8 +8,9 @@ type Props = {
 };
 
 const MovieCard = ({ movie }: Props) => {
+  const imageSize = "w500";
   const imgPath = movie.poster_path
-    ? `${POSTER_URL}${IMG_SIZE}${movie.poster_path}`
+    ? `${POSTER_URL}${imageSize}${movie.poster_path}`
     : noImgPlaceholder;
 
   return (
@@ -17,6 +18,7 @@ const MovieCard = ({ movie }: Props) => {
       <div className="z-10">
         <Ratings rating={movie.vote_average} />
       </div>
+      {/* <PosterImage path={movie.p} /> */}
       <img className="object-cover w-full h-full" src={imgPath} />
 
       {/* Hover Overlay with Fade Top Shadow */}

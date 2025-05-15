@@ -4,7 +4,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 const Layout = () => {
   return (
-    <section className="min-h-screen bg-bgColor">
+    <section className="relative min-h-screen bg-bgColor">
       <NavBar />
       <Outlet />
       <ScrollToTop />

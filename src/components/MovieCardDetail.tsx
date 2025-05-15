@@ -13,8 +13,10 @@ const MovieCardDetail = ({ movie }: Props) => {
   const genres = movie?.genres.map((g) => g.name);
   const creators = movie?.created_by?.map((c) => c.name);
 
+  const imageSize = "w780";
+
   const imgPath = movie?.poster_path
-    ? `${POSTER_URL}original${movie.poster_path}`
+    ? `${POSTER_URL}${imageSize}${movie.poster_path}`
     : noImagePlaceholder;
 
   return (
