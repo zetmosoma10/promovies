@@ -30,7 +30,7 @@ const NavBar = () => {
   return (
     <header className="relative py-3 border-b border-b-surfaceColor">
       <nav className="flex items-center justify-between max-container ">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 md:space-x-0">
           <GiHamburgerMenu
             onClick={onOpen}
             className="text-xl text-gray-200 md:hidden"

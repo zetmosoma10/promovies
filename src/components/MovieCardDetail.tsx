@@ -2,6 +2,7 @@ import { POSTER_URL } from "../constance";
 import type { Movie } from "../types/Movie";
 import { FaStar } from "react-icons/fa";
 import noImagePlaceholder from "../assets/no-image-placeholder-6f3882e0.webp";
+import MovieProperty from "./MovieProperty";
 
 type Props = {
   movie: Movie;
@@ -30,38 +31,26 @@ const MovieCardDetail = ({ movie }: Props) => {
         <p className="mt-2 opacity-70">{movie.overview}</p>
 
         <div className="mt-3 md:w-[60%]">
-          <div className="grid grid-cols-2 space-x-1">
-            <span className="font-medium">Country:</span>
-            <span className="font-light">{countries?.join(", ")}</span>
-          </div>
-          <div className="grid grid-cols-2 space-x-1">
-            <span className="font-medium">Genres:</span>
-            <span className="font-light">{genres?.join(", ")}</span>
-          </div>
-          <div className="grid grid-cols-2 space-x-1">
-            <span className="font-medium">Released:</span>
-            <span className="font-light">
-              {movie.first_air_date || movie.release_date}
-            </span>
-          </div>
-          <div className="grid grid-cols-2 space-x-1">
-            <span className="font-medium">Rating:</span>
-            <span className="flex items-center space-x-1 font-light">
-              <FaStar className="text-yellow-400 " />
-              <span>{movie.vote_average.toFixed(1)}</span>
-            </span>
-          </div>
+          <MovieProperty label="Country" value={countries?.join(", ")} />
+          <MovieProperty label="Genres" value={genres?.join(", ")} />
+          <MovieProperty
+            label="Released"
+            value={movie.first_air_date || movie.release_date}
+          />
+          <MovieProperty
+            label="Rating"
+            value={
+              <span className="flex items-center space-x-1">
+                <FaStar className="text-yellow-400 " />
+                <span>{movie.vote_average.toFixed(1)}</span>
+              </span>
+            }
+          />
           {movie.runtime && (
-            <div className="grid grid-cols-2 space-x-1">
-              <span className="font-medium">Duration:</span>
-              <span className="font-light">{movie.runtime}m</span>
-            </div>
+            <MovieProperty label="Duration" value={`${movie.runtime}m`} />
           )}
           {movie.created_by && (
-            <div className="grid grid-cols-2 space-x-1">
-              <span className="font-medium">Creators:</span>
-              <span className="font-light">{creators?.join(", ")}</span>
-            </div>
+            <MovieProperty label="Creators" value={creators?.join(", ")} />
           )}
         </div>
       </div>
