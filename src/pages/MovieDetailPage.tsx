@@ -16,18 +16,26 @@ const MovieDetailPage = () => {
   if (isError) throw error;
 
   return (
-    <section className="pb-10 max-container text-gray-50">
-      <BackLink />
-      <TrailerVideo movie={movie} />
-      {movie ? <MovieCardDetail movie={movie} /> : <MovieCardDetailSkeleton />}
+    <section className="pb-10 text-gray-50">
+      <div className="max-container">
+        <BackLink />
+        <TrailerVideo movie={movie} />
+        {movie ? (
+          <MovieCardDetail movie={movie} />
+        ) : (
+          <MovieCardDetailSkeleton />
+        )}
+      </div>
       {isLoading
         ? null
         : movie?.credits.cast.length !== 0 && <Credits movie={movie} />}
-      {isLoading
-        ? null
-        : movie?.recommendations.total_results !== 0 && (
-            <Recommendation movie={movie} />
-          )}
+      <div className="max-container">
+        {isLoading
+          ? null
+          : movie?.recommendations.total_results !== 0 && (
+              <Recommendation movie={movie} />
+            )}
+      </div>
     </section>
   );
 };

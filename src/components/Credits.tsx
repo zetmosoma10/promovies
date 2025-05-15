@@ -11,7 +11,7 @@ type Props = {
 const Credits = ({ movie }: Props) => {
   return (
     <div className="mt-10">
-      <h4 className="mb-5 text-2xl font-semibold">
+      <h4 className="mb-5 text-2xl font-semibold max-container">
         Cast of {movie?.name || movie?.title}
       </h4>
       <Swiper
