@@ -21,7 +21,7 @@ const TVShowsPage = () => {
     hasNextPage,
   } = useTVShows("tv");
   const { data: genres, isError: isGenreError } = useGenreTVShows();
-  const { inView, ref } = useInView({ threshold: 0.5 });
+  const { inView, ref } = useInView({ threshold: 0, rootMargin: "250px" });
 
   useEffect(() => {
     if (inView && hasNextPage) {

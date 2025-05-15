@@ -21,7 +21,7 @@ const MoviesPage = () => {
     hasNextPage,
   } = useMovies("movie");
   const { data: genres } = useGenreMovies();
-  const { inView, ref } = useInView({ threshold: 0.5 });
+  const { inView, ref } = useInView({ threshold: 0, rootMargin: "250px" });
 
   useEffect(() => {
     if (inView && hasNextPage) {

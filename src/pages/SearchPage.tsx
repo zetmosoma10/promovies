@@ -20,7 +20,7 @@ const SearchPage = () => {
     hasNextPage,
   } = useSearch(query);
 
-  const { inView, ref } = useInView({ threshold: 0.5 });
+  const { inView, ref } = useInView({ threshold: 0, rootMargin: "250px" });
 
   useEffect(() => {
     if (inView && hasNextPage) {

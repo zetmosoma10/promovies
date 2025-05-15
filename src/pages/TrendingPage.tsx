@@ -19,7 +19,7 @@ const TrendingPage = () => {
     isLoading,
   } = useTrending();
 
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0, rootMargin: "250px" });
 
   useEffect(() => {
     if (inView && hasNextPage) {
