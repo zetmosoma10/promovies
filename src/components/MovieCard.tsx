@@ -13,16 +13,16 @@ const MovieCard = ({ movie }: Props) => {
     : noImgPlaceholder;
 
   return (
-    <div className="relative h-[340px] rounded-lg overflow-hidden shadow-lg group transform transition-transform duration-300 hover:scale-105 will-change-transform">
+    <div className="relative h-[270px] md:h-[340px] rounded-lg overflow-hidden shadow-lg group transform transition-transform duration-300 hover:scale-105 will-change-transform">
       <div className="z-10">
         <Ratings rating={movie.vote_average} />
       </div>
       <img className="object-cover w-full h-full" src={imgPath} />
 
       {/* Hover Overlay with Fade Top Shadow */}
-      <div className="absolute bottom-0 left-0 w-full p-4 text-white transition-opacity duration-300 opacity-0 bg-gradient-to-t from-mintGreen to-transparent group-hover:opacity-100">
+      <div className="absolute bottom-0 left-0 w-full p-4 text-white transition-opacity duration-300 opacity-100 md:opacity-0 bg-gradient-to-t from-mintGreen to-transparent md:group-hover:opacity-100">
         {/* Movie Info */}
-        <h3 className="relative z-10 text-lg font-semibold leading-5">
+        <h3 className="relative z-10 text-base md:text-lg font-semibold leading-5">
           {movie.title || movie.name}
         </h3>
         <p className="relative z-10 text-sm">

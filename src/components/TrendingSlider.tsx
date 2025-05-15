@@ -13,7 +13,7 @@ const TrendingSlider = () => {
 
   return (
     <section className="my-10">
-      <h2 className="mb-4 text-2xl text-center text-gray-50">
+      <h2 className="mb-4 text-xl md:text-2xl text-center text-gray-50">
         Trending TV Series
       </h2>
       {isLoading ? (

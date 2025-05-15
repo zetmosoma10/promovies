@@ -26,11 +26,13 @@ const MovieCardDetail = ({ movie }: Props) => {
         />
       </div>
 
-      <div className="flex-1 px-4 pb-3 space-y-4 md:px-0 md:pr-4 md:pt-4">
-        <h3 className="text-3xl font-bold">{movie.name || movie.title}</h3>
-        <p className="mt-2 opacity-70">{movie.overview}</p>
+      <div className="flex-1 px-4 pb-3  md:px-0 md:pr-4 md:pt-4">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
+          {movie.name || movie.title}
+        </h3>
+        <p className="text-sm sm:text-base mt-2 opacity-70">{movie.overview}</p>
 
-        <div className="mt-3 md:w-[60%]">
+        <div className="text-sm sm:text-base mt-3 md:w-[60%]">
           <MovieProperty label="Country" value={countries?.join(", ")} />
           <MovieProperty label="Genres" value={genres?.join(", ")} />
           <MovieProperty

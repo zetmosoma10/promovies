@@ -6,6 +6,7 @@ import TrailerVideo from "../components/TrailerVideo";
 import Credits from "../components/Credits";
 import MovieCardDetailSkeleton from "../loadingSkeletons/MovieCardDetailSkeleton";
 import BackLink from "../components/BackLink";
+import Footer from "../components/Footer";
 
 const MovieDetailPage = () => {
   const { slug } = useParams();
@@ -16,7 +17,7 @@ const MovieDetailPage = () => {
   if (isError) throw error;
 
   return (
-    <section className="pb-10 text-gray-50">
+    <section className=" text-gray-50">
       <div className="max-container">
         <BackLink />
         <TrailerVideo movie={movie} />
@@ -36,6 +37,7 @@ const MovieDetailPage = () => {
               <Recommendation movie={movie} />
             )}
       </div>
+      <Footer />
     </section>
   );
 };

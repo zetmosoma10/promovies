@@ -23,10 +23,10 @@ const Search = () => {
       className="focus-within:border focus-within:border-mintGreen bg-surfaceColor pl-2 rounded-lg overflow-hidden"
     >
       <div className="flex items-center">
-        <CiSearch className="text-xl text-gray-50 " />
+        <CiSearch className="text-base md:text-xl text-gray-50 " />
         <input
           ref={ref}
-          className="py-1 text-gray-200 bg-surfaceColor  caret-catedGray indent-2 focus:outline-none"
+          className="py-1 text-sm sm:text-base placeholder:text-sm sm:placeholder:text-base text-gray-200 bg-surfaceColor  caret-catedGray indent-2 focus:outline-none"
           type="text"
           placeholder="Search movies..."
         />

@@ -11,7 +11,9 @@ const LatestMovies = () => {
 
   return (
     <section className="max-container">
-      <h2 className="font-medium text-4xl text-gray-50">Latest Movies</h2>
+      <h2 className="font-medium text-2xl md:text-4xl text-gray-50">
+        Latest Movies
+      </h2>
       <div className="relative grid-container mt-5">
         {isLoading
           ? [...Array(10)].map((_, index) => <MovieCardSkeleton key={index} />)

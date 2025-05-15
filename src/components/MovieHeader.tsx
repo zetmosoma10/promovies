@@ -14,7 +14,7 @@ const MovieHeader = ({ children, category }: Props) => {
   const genreName = data?.find((g) => g.id === genreId);
 
   return (
-    <h1 className="figtree text-gray-50 font-semibold text-5xl">
+    <h1 className="figtree text-2xl sm:text-3xl md:text-4 text-gray-50 font-semibold">
       {genreName?.name} {children}
     </h1>
   );

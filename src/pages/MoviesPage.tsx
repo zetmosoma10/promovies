@@ -33,7 +33,7 @@ const MoviesPage = () => {
 
   return (
     <section className="max-container">
-      <div className="flex items-center justify-between my-10">
+      <div className="flex items-center justify-between mt-10 mb-7">
         <MovieHeader category="movie">Movies</MovieHeader>
         <GenreList category="movie" genres={genres} />
       </div>

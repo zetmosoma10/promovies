@@ -6,6 +6,7 @@ import TrailerVideo from "../components/TrailerVideo";
 import Credits from "../components/Credits";
 import MovieCardDetailSkeleton from "../loadingSkeletons/MovieCardDetailSkeleton";
 import BackLink from "../components/BackLink";
+import Footer from "../components/Footer";
 
 const TVShowDetailPage = () => {
   const { slug } = useParams();
@@ -36,6 +37,7 @@ const TVShowDetailPage = () => {
               <Recommendation movie={movie} />
             )}
       </div>
+      <Footer />
     </section>
   );
 };

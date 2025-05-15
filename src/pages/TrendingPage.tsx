@@ -31,7 +31,7 @@ const TrendingPage = () => {
 
   return (
     <section className="max-container">
-      <div className="my-10">
+      <div className="mt-10 mb-7">
         <MovieHeader category="trending">Trending</MovieHeader>
       </div>
       <div className="mt-5 grid-container">

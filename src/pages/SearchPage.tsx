@@ -32,7 +32,7 @@ const SearchPage = () => {
 
   return (
     <section className="font-semibold max-container text-gray-50">
-      <h1 className="mt-10 mb-8 text-3xl font-semibold">
+      <h1 className="figtree text-2xl sm:text-3xl md:text-4 text-gray-50 font-semibold mt-10 mb-7">
         {data?.pages.length === 0
           ? `No results for "${query}"`
           : `Search results for "${query}"`}
