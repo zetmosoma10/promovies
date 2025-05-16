@@ -12,7 +12,7 @@ const GenreList = ({ genres, category }: Props) => {
   const setGenre = useMovieStore((s) => s.setGenre);
 
   return (
-    <div>
+    <div className="text-sm sm:text-base">
       <label className="block text-gray-50" htmlFor="genres">
         Genres
       </label>

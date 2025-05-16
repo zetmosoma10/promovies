@@ -34,7 +34,7 @@ const MoviesPage = () => {
 
   return (
     <section className="max-container">
-      <div className="flex items-center justify-between mt-10 mb-7">
+      <div className="flex items-start justify-between mt-10 space-x-5 mb-7">
         <MovieHeader category="movie">Movies</MovieHeader>
         <div className="flex items-center space-x-4">
           <SortSelector category="movie" />

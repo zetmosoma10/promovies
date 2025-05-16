@@ -9,6 +9,7 @@ import GenreList from "../components/GenreList";
 import useGenreTVShows from "../hooks/useGenreTVShows";
 import MovieHeader from "../components/MovieHeader";
 import generateSlug from "../services/generateSlug";
+import SortSelector from "../components/SortSelector";
 
 const TVShowsPage = () => {
   const {
@@ -34,9 +35,12 @@ const TVShowsPage = () => {
 
   return (
     <section className="max-container">
-      <div className="flex items-center justify-between mt-10 mb-7">
+      <div className="flex items-start justify-between mt-10 space-x-5 mb-7">
         <MovieHeader category="tv">TV Shows</MovieHeader>
-        <GenreList category="tv" genres={genres} />
+        <div className="flex items-center space-x-4">
+          <SortSelector category="tv" />
+          <GenreList category="tv" genres={genres} />
+        </div>
       </div>
       <div className="grid-container">
         {isLoading
@@ -51,9 +55,9 @@ const TVShowsPage = () => {
               </React.Fragment>
             ))}
       </div>
-      <div className="py-4 flex justify-center" ref={ref}>
+      <div className="flex justify-center py-4" ref={ref}>
         {isFetchingNextPage && (
-          <CgSpinner className="animate-spin text-3xl text-mintGreen " />
+          <CgSpinner className="text-3xl animate-spin text-mintGreen " />
         )}
       </div>
     </section>

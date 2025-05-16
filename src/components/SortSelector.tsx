@@ -29,7 +29,7 @@ const SortSelector = ({ category }: Props) => {
   ];
 
   return (
-    <div>
+    <div className="text-sm sm:text-base">
       <label className="block text-gray-50" id="sort" htmlFor="sort">
         Sort by
       </label>
