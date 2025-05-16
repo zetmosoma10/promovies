@@ -22,9 +22,9 @@ const MovieCard = ({ movie }: Props) => {
       <img className="object-cover w-full h-full" src={imgPath} />
 
       {/* Hover Overlay with Fade Top Shadow */}
-      <div className="absolute bottom-0 left-0 w-full p-4 text-white transition-opacity duration-300 opacity-100 md:opacity-0 bg-gradient-to-t from-mintGreen to-transparent md:group-hover:opacity-100">
+      <div className="absolute bottom-0 left-0 w-full p-4 pt-10 text-white transition-opacity duration-300 opacity-100 md:opacity-0 bg-gradient-to-t from-mintGreen to-transparent md:group-hover:opacity-100">
         {/* Movie Info */}
-        <h3 className="relative z-10 text-base md:text-lg font-semibold leading-5">
+        <h3 className="relative z-10 text-base font-semibold md:text-lg">
           {movie.title || movie.name}
         </h3>
         <p className="relative z-10 text-sm">
