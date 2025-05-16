@@ -9,6 +9,7 @@ import GenreList from "../components/GenreList";
 import useGenreMovies from "../hooks/useGenreMovies";
 import MovieHeader from "../components/MovieHeader";
 import generateSlug from "../services/generateSlug";
+import SortSelector from "../components/SortSelector";
 
 const MoviesPage = () => {
   const {
@@ -35,7 +36,10 @@ const MoviesPage = () => {
     <section className="max-container">
       <div className="flex items-center justify-between mt-10 mb-7">
         <MovieHeader category="movie">Movies</MovieHeader>
-        <GenreList category="movie" genres={genres} />
+        <div className="flex items-center space-x-4">
+          <SortSelector />
+          <GenreList category="movie" genres={genres} />
+        </div>
       </div>
       <div className="relative grid-container">
         {isLoading
@@ -50,9 +54,9 @@ const MoviesPage = () => {
               </React.Fragment>
             ))}
       </div>
-      <div className="py-4 flex justify-center" ref={ref}>
+      <div className="flex justify-center py-4" ref={ref}>
         {isFetchingNextPage && (
-          <CgSpinner className="animate-spin text-3xl text-mintGreen " />
+          <CgSpinner className="text-3xl animate-spin text-mintGreen " />
         )}
       </div>
     </section>
