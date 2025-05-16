@@ -1,6 +1,6 @@
 # Movies App
 
-This is a **Frontend App** buit with **React + Typescript + Vite**, then user is able to get and view movies with trailers videos. Users can also search for movies and filter them by genres and sort them
+This is a **Frontend App** buit with **React + Typescript + Vite**, user is able to get and view movies with trailer videos. Users can also search for movies and filter them by genres and sort them
 
 ## Features
 
@@ -24,8 +24,8 @@ This is a **Frontend App** buit with **React + Typescript + Vite**, then user is
 1. Clone the Repository
 
 ```bash
-git clone ___
-cd ___
+git clone https://github.com/zetmosoma10/promovies.git
+cd promovies
 ```
 
 2. Install Dependancies
@@ -34,9 +34,9 @@ cd ___
 3. Create .env file
    At the root of the project create .env file and add
 
-VITE_API_KEY=your_api_key
+   - VITE_API_KEY=your_api_key
 
-You can get your api key from TMDB API documentaion here is the link
+   - You can get your api key from TMDB API documentaion here is the link. https://www.themoviedb.org/settings/api
 
 4. Start the Development server
    npm run dev
