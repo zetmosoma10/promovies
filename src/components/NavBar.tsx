@@ -1,10 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
-import { navLinks } from "../constance";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import { navLinks } from "../constance";
+import Logo from "./Logo";
 import Search from "./Search";
 import SideBar from "./SideBar";
-import { useEffect, useState } from "react";
-import Logo from "./Logo";
 
 const NavBar = () => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
