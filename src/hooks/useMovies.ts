@@ -15,8 +15,11 @@ const useMovies = (category: Category) => {
     queryFn: ({ pageParam }) =>
       apiClient.getAll({
         params: {
-          with_genres: query.with_genres,
           page: pageParam,
+          with_genres: query.with_genres,
+          sort_by: query.sort_by,
+          "vote_average.gte": 5,
+          "vote_average.lte": 9.8,
         },
       }),
     initialPageParam: 1,
