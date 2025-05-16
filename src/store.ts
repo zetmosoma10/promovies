@@ -6,6 +6,7 @@ import { mountStoreDevtool } from "simple-zustand-devtools";
 type Store = {
   movieQuery: Record<Category, MovieQuery>;
   setGenre: (category: Category, genreId?: number) => void;
+  setSort: (category: Category, sort?: string) => void;
 };
 
 const useMovieStore = create<Store>((set) => ({
@@ -17,6 +18,16 @@ const useMovieStore = create<Store>((set) => ({
         [category]: {
           ...state.movieQuery[category],
           with_genres: genreId,
+        },
+      },
+    })),
+  setSort: (category, sort) =>
+    set((state) => ({
+      movieQuery: {
+        ...state.movieQuery,
+        [category]: {
+          ...state.movieQuery[category],
+          sort_by: sort,
         },
       },
     })),

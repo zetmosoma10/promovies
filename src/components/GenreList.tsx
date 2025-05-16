@@ -12,23 +12,29 @@ const GenreList = ({ genres, category }: Props) => {
   const setGenre = useMovieStore((s) => s.setGenre);
 
   return (
-    <select
-      onChange={(event) =>
-        setGenre(
-          category,
-          event.target.value === "" ? undefined : +event.target.value
-        )
-      }
-      value={genreId ?? ""}
-      className="text-gray-50 focus:outline-none p-2 rounded-md font-medium bg-surfaceColor cursor-pointer focus:border focus:border-mintGreen "
-    >
-      <option value="">Genres</option>
-      {genres?.map((genre) => (
-        <option key={genre.id} value={genre.id}>
-          {genre.name}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label className="block text-gray-50" htmlFor="genres">
+        Genres
+      </label>
+      <select
+        onChange={(event) =>
+          setGenre(
+            category,
+            event.target.value === "" ? undefined : +event.target.value
+          )
+        }
+        value={genreId ?? ""}
+        id="genres"
+        className="p-2 font-medium rounded-md cursor-pointer text-gray-50 focus:outline-none bg-surfaceColor focus:border focus:border-mintGreen "
+      >
+        <option value="">--Choose--</option>
+        {genres?.map((genre) => (
+          <option key={genre.id} value={genre.id}>
+            {genre.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
